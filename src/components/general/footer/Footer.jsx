@@ -1,9 +1,15 @@
-import React from 'react';
-import styles from './Footer.module.scss';
+// imports
 import Link from 'next/link';
-import { RoutingPath } from '../../../helpers/RoutingPath';
+
+// components
 import { Navbar } from '../navbar/Navbar';
-// import logo from '../../assets/images/Edice_logo_side.svg';
+import { ActiveLink } from '../../../utils/ActiveLink';
+
+// helpers
+import { RoutingPath } from '../../../helpers/RoutingPath';
+
+// styles
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
   return (
@@ -14,12 +20,11 @@ export const Footer = () => {
         </div>
         <Navbar navPosition="Bottom" />
         <nav className={styles.footer_nav}>
-          <Link className={styles.footer_nav_item} href={RoutingPath.Terms}>
-            <a>Terms and conditions</a>
-          </Link>
-          <Link className={styles.footer_nav_item} href={RoutingPath.Privacy}>
-            <a>Privacy</a>
-          </Link>
+          <ActiveLink
+            linkUrl={RoutingPath.Terms}
+            linkText="Terms and conditions"
+          />
+          <ActiveLink linkUrl={RoutingPath.Privacy} linkText="Privacy" />
         </nav>
       </div>
     </footer>

@@ -1,5 +1,10 @@
+// imports
 import { useContext } from 'react';
+
+// context
 import { CartContext } from '../../../context/CartContext';
+
+// styles
 import styles from './addToCartButton.module.scss';
 
 export const AddToCartButton = (props) => {

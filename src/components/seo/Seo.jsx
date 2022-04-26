@@ -1,5 +1,5 @@
+// imports
 import Head from 'next/head';
-import PropTypes from 'prop-types';
 
 export const Seo = (props) => {
   const { title, description, image, pageUrl } = props;

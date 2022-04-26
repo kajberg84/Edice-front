@@ -1,6 +1,10 @@
-import React from 'react';
+// components
 import { Card } from '../card/Card';
+
+// helpers
 import { products } from '../../../api/EcomData';
+
+// styles
 import styles from './ProductsWrapper.module.scss';
 
 export const ProductsWrapper = () => {

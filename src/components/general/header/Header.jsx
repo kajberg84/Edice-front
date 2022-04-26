@@ -1,14 +1,18 @@
-import React from 'react';
+// imports
 import { useContext } from 'react';
 import Link from 'next/link';
-import { RoutingPath } from '../../../helpers/RoutingPath';
-import { Navbar } from '../navbar/Navbar';
+
+// context
 import { UserContext } from '../../../context/UserContext';
+
+// components
+import { Navbar } from '../navbar/Navbar';
+
+// helpers
+import { RoutingPath } from '../../../helpers/RoutingPath';
+
 // Styles
 import styles from './Header.module.scss';
-
-// Images
-// import logo from '../../assets/images/Edice_full_logo.svg';
 
 export const Header = () => {
   const { user } = useContext(UserContext);

@@ -1,6 +1,7 @@
+// imports
 import ReactDOM from 'react-dom';
-// import icon from '../../assets/icons/x-circle.svg';
 
+// components
 import { AddToCartButton } from '../addToCartButton/AddToCartButton';
 
 // styles

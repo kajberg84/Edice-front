@@ -1,23 +1,24 @@
-import React from 'react';
+// imports
 import { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
-
 import { useRouter } from 'next/router';
-import { RoutingPath } from '../../../helpers/RoutingPath';
 
+// context
 import { UserContext } from '../../../context/UserContext';
 import { CartContext } from '../../../context/CartContext';
+
+// components
 import { Modal } from '../../../utils/modal/Modal';
-// import { removeLocalStorage } from '../../../utils/localStorageHandler';
+import { removeLocalStorage } from '../../../utils/localStorageHandler';
 import { Cart } from '../cart/Cart';
 // import CustomLink from '../../../utils/CustomLink';
+import { ActiveLink } from '../../../utils/ActiveLink';
+
+// helpers
+import { RoutingPath } from '../../../helpers/RoutingPath';
 
 // Styles
 import styles from './Navbar.module.scss';
-
-// // Images
-// import emptyCartIcon from '../../assets/images/shopping_cart_icon.svg';
-// import cartIcon from '../../assets/images/shopping_cart_plus.svg';
 
 export const Navbar = (props) => {
   const { navPosition } = props;
@@ -44,23 +45,18 @@ export const Navbar = (props) => {
   }, [cart]);
 
   // Logout function
-  // const handleLogout = () => {
-  //   removeLocalStorage('edice-user');
-  //   setUser(null);
-  //   // navigate(RoutingPath.Login);
-  //   router.push(RoutingPath.Login);
-  // };
+  const handleLogout = () => {
+    removeLocalStorage('edice-user');
+    setUser(null);
+    router.push(RoutingPath.Login);
+  };
 
   // Navbar links if not logged in.
   const unAuthNavbar = () => {
     return (
       <>
-        <Link className={styles.nav_item} href={RoutingPath.Login}>
-          <a>Login</a>
-        </Link>
-        <Link className={styles.nav_item} href={RoutingPath.Register}>
-          <a>Register</a>
-        </Link>
+        <ActiveLink linkUrl={RoutingPath.Login} linkText="Login" />
+        <ActiveLink linkUrl={RoutingPath.Register} linkText="Register" />
       </>
     );
   };
@@ -69,13 +65,10 @@ export const Navbar = (props) => {
   const authNavbar = () => {
     return (
       <>
-        <Link className={styles.nav_item} href={RoutingPath.Account}>
-          <a>Account</a>
-        </Link>
-        {/* <button className={styles.nav_button} onClick={handleLogout}>
+        <ActiveLink linkUrl={RoutingPath.Account} linkText="Account" />
+        <button className={styles.nav_button} onClick={handleLogout}>
           Logout
-        </button> */}
-        <button className={styles.nav_button}>Logout</button>
+        </button>
       </>
     );
   };
@@ -88,7 +81,6 @@ export const Navbar = (props) => {
 
   // Checkoutbutton in shopping cart modal
   const handleToCheckout = () => {
-    // navigate(RoutingPath.Checkout);
     router.push(RoutingPath.Checkout);
     setModalvisible(false);
   };
@@ -96,12 +88,9 @@ export const Navbar = (props) => {
   return (
     <>
       <nav className={styles.nav}>
-        <Link className={styles.nav_item} href={RoutingPath.Home}>
-          <a>Shop</a>
-        </Link>
-        <Link className={styles.nav_item} href={RoutingPath.Checkout}>
-          <a>Checkout</a>
-        </Link>
+        <ActiveLink linkUrl={RoutingPath.Home} linkText="Shop" />
+        <ActiveLink linkUrl={RoutingPath.Checkout} linkText="Checkout" />
+
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>
           <button className={styles.nav_button}>

@@ -1,8 +1,12 @@
+// imports
 import { useContext } from 'react';
+
+// context
 import { CartContext } from '../../../context/CartContext';
+
+// styles
 import style from './Cart.module.scss';
-// import plus from '/icons/add_white_24dp.svg';
-// import minus from '/icons/remove_white_24dp.svg';
+
 
 export const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
