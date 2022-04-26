@@ -1,29 +1,29 @@
-import style from "./Modal.module.css";
+import style from './Modal.module.scss';
 
 export const Modal = (props) => {
   const { passedPosition, title, content, actions } = props;
 
   const modalPositionStyle = {
-    position: "fixed",
-    top: "100px",
-    right: "3rem",
+    position: 'fixed',
+    top: '100px',
+    right: '3rem',
   };
 
   const modalPositionStyleTop = {
-    position: "fixed",
-    top: "100px",
-    right: "3rem",
+    position: 'fixed',
+    top: '100px',
+    right: '3rem',
   };
 
   const modalPositionStyleBottom = {
-    position: "fixed",
-    bottom: "180px",
-    right: "3rem",
+    position: 'fixed',
+    bottom: '180px',
+    right: '3rem',
   };
   const decidePosition = (string) => {
-    if (string === "Top") {
+    if (string === 'Top') {
       return modalPositionStyleTop;
-    } else if (string === "Bottom") {
+    } else if (string === 'Bottom') {
       return modalPositionStyleBottom;
     } else {
       return modalPositionStyle;
