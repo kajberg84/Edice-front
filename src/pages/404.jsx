@@ -2,13 +2,13 @@
 import Link from 'next/link';
 
 // components
-import { Seo } from '../../components/seo/Seo';
+import { Seo } from '../components/seo/Seo';
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from './NotFound.module.scss';
+import styles from '../styles/pages/NotFound.module.scss';
 
 export default function NotFound() {
   return (

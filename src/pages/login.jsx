@@ -6,18 +6,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 // context
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../context/UserContext';
 
 // components
-import { Seo } from '../../components/seo/Seo';
+import { Seo } from '../components/seo/Seo';
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
-import { getUser } from '../../api/users';
-import { setLocalStorage } from '../../utils/localStorageHandler';
+import { RoutingPath } from '../helpers/RoutingPath';
+import { getUser } from '../api/users';
+import { setLocalStorage } from '../utils/localStorageHandler';
 
 // styles
-import styles from './Login.module.scss';
+import styles from '../styles/pages/Login.module.scss';
 
 // Schema for formvalidating
 const loginSchema = yup

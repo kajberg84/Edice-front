@@ -5,15 +5,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 // components
-import { Seo } from '../../components/seo/Seo';
-import { Hero } from '../../components/general/hero/Hero';
+import { Seo } from '../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
-import { users } from '../../api/users';
+import { RoutingPath } from '../helpers/RoutingPath';
+import { users } from '../api/users';
 
 // styles
-import styles from './Register.module.scss';
+import styles from '../styles/pages/Register.module.scss';
 
 // Schema for formvalidating
 const registerSchema = yup

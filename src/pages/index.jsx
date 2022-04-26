@@ -7,7 +7,7 @@ import { ProductsWrapper } from '../components/general/productsWrapper/ProductsW
 import { RoutingPath } from '../helpers/RoutingPath';
 
 // style
-import style from '../styles/Home.module.scss';
+import style from '../styles/pages/Home.module.scss';
 
 export default function Home() {
   return (
