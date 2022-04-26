@@ -1,14 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 // imports
 
 // components
-import { Hero } from '../../components/general/hero/Hero';
-import { Seo } from '../../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
+import { Seo } from '../components/seo/Seo';
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
+import { RoutingPath } from '../helpers/RoutingPath';
 
 //styles
-import styles from './Privacy.module.scss';
+import styles from '../styles/pages/Privacy.module.scss';
 
 const Privacy = () => {
   return (

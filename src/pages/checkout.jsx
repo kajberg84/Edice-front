@@ -6,19 +6,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 // context
-import { UserContext } from '../../context/UserContext';
-import { CartContext } from '../../context/CartContext';
+import { UserContext } from '../context/UserContext';
+import { CartContext } from '../context/CartContext';
 
 // components
-import { Seo } from '../../components/seo/Seo';
-import { Hero } from '../../components/general/hero/Hero';
-import { ProductCardSmall } from '../../components/general/productcardsmall/ProductCardSmall';
+import { Seo } from '../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
+import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from './Checkout.module.scss';
+import styles from '../styles/pages/Checkout.module.scss';
 
 // Schema for formvalidating
 const shippingSchema = yup

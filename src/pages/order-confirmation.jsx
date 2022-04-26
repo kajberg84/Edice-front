@@ -2,18 +2,18 @@
 import { useContext, useState, useEffect } from 'react';
 
 // context
-import { CartContext } from '../../context/CartContext';
+import { CartContext } from '../context/CartContext';
 
 // components
-import { Hero } from '../../components/general/hero/Hero';
-import { ProductCardSmall } from '../../components/general/productcardsmall/ProductCardSmall';
-import { Seo } from '../../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
+import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
+import { Seo } from '../components/seo/Seo';
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from './OrderConfirmation.module.scss';
+import styles from '../styles/pages/OrderConfirmation.module.scss';
 
 const OrderConfirmation = () => {
   const { cart, setCart } = useContext(CartContext);

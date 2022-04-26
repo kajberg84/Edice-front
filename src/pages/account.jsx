@@ -3,17 +3,17 @@ import Link from 'next/link';
 import { useContext } from 'react';
 
 // Context
-import { UserContext } from '../../context/UserContext';
+import { UserContext } from '../context/UserContext';
 
 // Components
-import { Hero } from '../../components/general/hero/Hero';
-import { Seo } from '../../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
+import { Seo } from '../components/seo/Seo';
 
 // Helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from './Account.module.scss';
+import styles from '../styles/pages/Account.module.scss';
 
 const Account = () => {
   const { user } = useContext(UserContext);
