@@ -22,8 +22,7 @@ export default function Home() {
         pageUrl={RoutingPath.home}
       />
 
-      <main>
-        <Header />
+      <>
         <Hero title="A store of dices">
           <p>
             All our dice sets contain one of each of these types of dice: d4,
@@ -34,9 +33,7 @@ export default function Home() {
             Pathfinder, Call of Cthulhu, Coriolis and many more.
           </p>
         </Hero>
-
-        <Footer />
-      </main>
+      </>
     </>
   );
 }

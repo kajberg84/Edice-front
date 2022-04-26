@@ -1,7 +1,12 @@
-import React from 'react';
+import { Header } from '../general/header/Header';
+import { Footer } from '../general/footer/Footer';
 
-// ej gjord
-
-export const Layout = () => {
-  return <div>Layout</div>;
+export const Layout = ({ children }) => {
+  return (
+    <>
+      <Header />
+      <main style={{ minHeight: 'calc(100vh - 420px)' }}>{children}</main>
+      <Footer />
+    </>
+  );
 };
