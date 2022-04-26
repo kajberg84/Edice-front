@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 // components
 import { Navbar } from '../navbar/Navbar';
+import { ActiveLink } from '../../../utils/ActiveLink';
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
@@ -19,12 +20,11 @@ export const Footer = () => {
         </div>
         <Navbar navPosition="Bottom" />
         <nav className={styles.footer_nav}>
-          <Link href={RoutingPath.Terms}>
-            <a className={styles.footer_nav_item}>Terms and conditions</a>
-          </Link>
-          <Link href={RoutingPath.Privacy}>
-            <a className={styles.footer_nav_item}>Privacy</a>
-          </Link>
+          <ActiveLink
+            linkUrl={RoutingPath.Terms}
+            linkText="Terms and conditions"
+          />
+          <ActiveLink linkUrl={RoutingPath.Privacy} linkText="Privacy" />
         </nav>
       </div>
     </footer>

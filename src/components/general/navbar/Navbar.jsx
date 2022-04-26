@@ -12,6 +12,7 @@ import { Modal } from '../../../utils/modal/Modal';
 import { removeLocalStorage } from '../../../utils/localStorageHandler';
 import { Cart } from '../cart/Cart';
 // import CustomLink from '../../../utils/CustomLink';
+import { ActiveLink } from '../../../utils/ActiveLink';
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
@@ -54,12 +55,8 @@ export const Navbar = (props) => {
   const unAuthNavbar = () => {
     return (
       <>
-        <Link href={RoutingPath.Login}>
-          <a className={styles.nav_item}>Login</a>
-        </Link>
-        <Link href={RoutingPath.Register}>
-          <a className={styles.nav_item}>Register</a>
-        </Link>
+        <ActiveLink linkUrl={RoutingPath.Login} linkText="Login" />
+        <ActiveLink linkUrl={RoutingPath.Register} linkText="Register" />
       </>
     );
   };
@@ -68,9 +65,7 @@ export const Navbar = (props) => {
   const authNavbar = () => {
     return (
       <>
-        <Link href={RoutingPath.Account}>
-          <a className={styles.nav_item}>Account</a>
-        </Link>
+        <ActiveLink linkUrl={RoutingPath.Account} linkText="Account" />
         <button className={styles.nav_button} onClick={handleLogout}>
           Logout
         </button>
@@ -93,12 +88,9 @@ export const Navbar = (props) => {
   return (
     <>
       <nav className={styles.nav}>
-        <Link href={RoutingPath.Home}>
-          <a className={styles.nav_item}>Shop</a>
-        </Link>
-        <Link href={RoutingPath.Checkout}>
-          <a className={styles.nav_item}>Checkout</a>
-        </Link>
+        <ActiveLink linkUrl={RoutingPath.Home} linkText="Shop" />
+        <ActiveLink linkUrl={RoutingPath.Checkout} linkText="Checkout" />
+
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>
           <button className={styles.nav_button}>

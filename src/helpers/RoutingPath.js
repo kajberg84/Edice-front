@@ -6,6 +6,6 @@ export const RoutingPath = {
   Account: 'account',
   OrderConfirmation: 'order-confirmation',
   Register: 'register',
-  Terms: 'terms-and-conditions',
+  Terms: 'terms',
   Privacy: 'privacy',
 };

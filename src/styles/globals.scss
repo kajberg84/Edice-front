@@ -64,3 +64,16 @@ input[type='button']:hover {
   border: 2px solid #000000;
   transition: 0.5s;
 }
+
+.activeLink {
+  color: rgb(40, 12, 155);
+  font-size: 1.8rem;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+
+.nav-item {
+  font-size: 1.8rem;
+  margin-left: 20px;
+  transition: 0.5s;
+}
