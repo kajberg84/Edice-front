@@ -1,9 +1,14 @@
-import React from 'react';
-import styles from './Footer.module.scss';
+// imports
 import Link from 'next/link';
-import { RoutingPath } from '../../../helpers/RoutingPath';
+
+// components
 import { Navbar } from '../navbar/Navbar';
-// import logo from '../../assets/images/Edice_logo_side.svg';
+
+// helpers
+import { RoutingPath } from '../../../helpers/RoutingPath';
+
+// styles
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
   return (

@@ -1,7 +1,10 @@
+// imports
 import { useState } from "react";
-import { ProductModal } from "../productmodal/ProductModal";
 
+// components
+import { ProductModal } from "../productmodal/ProductModal";
 import { AddToCartButton } from "../addToCartButton/AddToCartButton";
+
 // styles
 import styles from "./Card.module.scss";
 

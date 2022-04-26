@@ -40,7 +40,7 @@ const OrderConfirmation = () => {
 
   useEffect(() => {
     setCart([]);
-  }, []);
+  }, [setCart]);
 
   return (
     <>

@@ -1,3 +1,4 @@
+// components
 import { Header } from '../general/header/Header';
 import { Footer } from '../general/footer/Footer';
 

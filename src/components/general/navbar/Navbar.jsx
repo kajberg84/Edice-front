@@ -1,16 +1,20 @@
-import React from 'react';
+// imports
 import { useContext, useState, useEffect } from 'react';
 import Link from 'next/link';
-
 import { useRouter } from 'next/router';
-import { RoutingPath } from '../../../helpers/RoutingPath';
 
+// context
 import { UserContext } from '../../../context/UserContext';
 import { CartContext } from '../../../context/CartContext';
+
+// components
 import { Modal } from '../../../utils/modal/Modal';
 import { removeLocalStorage } from '../../../utils/localStorageHandler';
 import { Cart } from '../cart/Cart';
 // import CustomLink from '../../../utils/CustomLink';
+
+// helpers
+import { RoutingPath } from '../../../helpers/RoutingPath';
 
 // Styles
 import styles from './Navbar.module.scss';
