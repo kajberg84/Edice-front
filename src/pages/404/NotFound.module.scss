@@ -1,0 +1,22 @@
+.notfound_wrapper {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+}
+
+.notfound_img_wrapper {
+  width: 40%;
+}
+
+.notfound_button {
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-top: 20px;
+}

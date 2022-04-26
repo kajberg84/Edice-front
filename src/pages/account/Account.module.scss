@@ -1,0 +1,26 @@
+.account_wrapper {
+  max-width: 1200px;
+  margin: 100px auto;
+}
+
+.account_button {
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}
+
+.account_button:hover {
+  background-color: #fff;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}

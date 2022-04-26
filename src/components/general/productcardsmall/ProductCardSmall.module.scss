@@ -15,9 +15,16 @@
   align-items: center;
 }
 
-.product_card_small h4,
-p {
-  font-size: 1.8rem;
+// .product_card_small h4,
+// p {
+//   font-size: 1.8rem;
+// }
+
+.product_card_small {
+  h4,
+  p {
+    font-size: 1.8rem;
+  }
 }
 
 .product_card_small_items p {

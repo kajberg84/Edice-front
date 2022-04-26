@@ -1,16 +1,13 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
 // components
 import { Seo } from '../components/seo/Seo';
-import { AddToCartButton } from '../components/general/addToCartButton/AddToCartButton';
-import { Cart } from '../components/general/cart/Cart';
-import { Footer } from '../components/general/footer/Footer';
-import { Header } from '../components/general/header/Header';
 import { Hero } from '../components/general/hero/Hero';
+import { ProductsWrapper } from '../components/general/productsWrapper/ProductsWrapper';
 
 // helpers
 import { RoutingPath } from '../helpers/RoutingPath';
+
+// style
+import style from '../styles/Home.module.scss';
 
 export default function Home() {
   return (
@@ -33,6 +30,7 @@ export default function Home() {
             Pathfinder, Call of Cthulhu, Coriolis and many more.
           </p>
         </Hero>
+        <ProductsWrapper />
       </>
     </>
   );
