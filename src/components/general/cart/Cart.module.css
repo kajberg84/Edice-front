@@ -1,0 +1,45 @@
+.li_style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart_button {
+  width: 20px;
+  height: 20px;
+  outline: none;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 1px solid #000000;
+}
+
+.total_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  border-top: 1px solid rgb(203, 203, 203);
+}
+
+.total {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.cart_name {
+  width: 45%;
+}
+
+.cart_incdecbuttons {
+  display: flex;
+  width: 18%;
+  justify-content: space-between;
+}
+
+.cart_price {
+  display: flex;
+  width: 22%;
+  justify-content: flex-end;
+  margin-right: 1rem;
+}

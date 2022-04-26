@@ -28,11 +28,4 @@ export const Seo = (props) => {
   );
 };
 
-Seo.PropTypes = {
-  title: String,
-  description: String,
-  image: String,
-  pageUrl: String,
-};
-
 // https://cheatcode.co/tutorials/how-to-handle-seo-metadata-in-next-js
