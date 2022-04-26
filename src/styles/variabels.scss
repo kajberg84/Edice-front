@@ -1,0 +1,75 @@
+// Refaktorisera hela appen till att nyttja bra variabler
+
+// Variablerna behöver uppdateras, de är tagna från ett annat projekt
+
+// colors
+$color-primary-green: #265e3d;
+$color-primary-purple: #5f1a24;
+
+$color-off-white: #fefbf0;
+$color-grey: #525252;
+$color-light-grey: #aeaeae;
+$color-green-grey: #316148;
+
+$color-black: #000;
+$color-white: #fff;
+
+$color-error: rgb(196, 89, 89);
+
+// font sizes
+
+// - brödtext
+$p-large: 2rem;
+$p-normal: 1.8rem;
+$p-small: 1.6rem;
+
+// - rubriker
+$title-1: 5rem;
+$title-2: 4rem;
+$title-3: 3.2rem;
+$title-4: 2.4rem;
+$title-5: 2rem;
+$title-6: 1.6rem;
+
+// line heights
+$line-height-large: 1.5;
+$line-height-normal: 1.4;
+$line-height-h3-h4: 1.3;
+$line-height-h2: 1.2;
+$line-height-h1: 1.1;
+
+// font-family
+$font-family-primary: 'Montserrat', sans-serif;
+$font-family-title: 'Roboto Slab', serif;
+
+// spacing
+
+$spacing-xs: 8px;
+$spacing-s: 16px;
+$spacing-m: 24px;
+$spacing-l: 32px;
+$spacing-xl: 40px;
+$spacing-xl-2: 48px;
+$spacing-xl-3: 56px;
+$spacing-xl-4: 64px;
+
+// break points
+
+$breakpoint-xs: 425px;
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
+$breakpoint-l: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+// max widths
+$max-width-desktop: 1200px;
+
+// border-radius
+$border-radius-s: $spacing-m;
+$border-radius-m: $spacing-l;
+$border-radius-l: $spacing-xl;
+
+// box-shadows
+$box-shadow-primary: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+$box-shadow-card: rgba(17, 12, 46, 0.05) 0px 48px 100px 0px;

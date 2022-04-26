@@ -1,0 +1,51 @@
+.modal_wrapper {
+  width: 300px;
+  border-radius: 20px;
+  height: fit-content;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border: 1px solid rgb(203, 203, 203);
+}
+
+.title_wrapper {
+  font-size: 2.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.content_wrapper {
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.actions_wrapper {
+  display: flex;
+  justify-content: space-between;
+  justify-content: end;
+  padding: 0.5rem;
+}
+
+.actions_wrapper > div > button {
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}
+
+.actions_wrapper > div > button:hover {
+  background-color: #fff;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}

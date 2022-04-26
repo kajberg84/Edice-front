@@ -1,0 +1,28 @@
+.order_confirmation_wrapper {
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.order_confirmation_wrapper h2 {
+  margin-bottom: 20px;
+}
+.order_confirmation_wrapper h3 {
+  margin-top: 20px;
+}
+
+.order_confirmation_heading4 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.total_wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  border-bottom: 1px solid rgb(203, 203, 203);
+}
+
+.total {
+  font-weight: bold;
+  margin-right: 3rem;
+}

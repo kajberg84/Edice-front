@@ -1,0 +1,21 @@
+.footer_container {
+  background-color: rgb(203, 203, 203);
+}
+
+.footer_wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  height: 300px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer_nav {
+  display: flex;
+}
+
+.footer_nav_item {
+  font-size: 1.8rem;
+  margin-left: 20px;
+}
