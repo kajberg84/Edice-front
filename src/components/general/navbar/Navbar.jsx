@@ -1,6 +1,5 @@
 // imports
 import { useContext, useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 // context
@@ -11,7 +10,6 @@ import { CartContext } from '../../../context/CartContext';
 import { Modal } from '../../../utils/modal/Modal';
 import { removeLocalStorage } from '../../../utils/localStorageHandler';
 import { Cart } from '../cart/Cart';
-// import CustomLink from '../../../utils/CustomLink';
 import { ActiveLink } from '../../../utils/ActiveLink';
 
 // helpers
