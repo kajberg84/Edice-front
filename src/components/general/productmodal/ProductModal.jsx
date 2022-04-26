@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { AddToCartButton } from '../addToCartButton/AddToCartButton';
 
 // styles
-import styles from './ProductModal.module.css';
+import styles from './ProductModal.module.scss';
 
 export const ProductModal = ({ product, closeModal }) => {
   return ReactDOM.createPortal(

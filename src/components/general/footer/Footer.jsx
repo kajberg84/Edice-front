@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 import Link from 'next/link';
 import { RoutingPath } from '../../../helpers/RoutingPath';
 import { Navbar } from '../navbar/Navbar';

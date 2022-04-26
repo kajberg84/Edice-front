@@ -1,5 +1,5 @@
 // styles
-import styles from "./ProductCardSmall.module.css";
+import styles from "./ProductCardSmall.module.scss";
 
 export const ProductCardSmall = ({ title, description, quantity, price }) => {
   return (

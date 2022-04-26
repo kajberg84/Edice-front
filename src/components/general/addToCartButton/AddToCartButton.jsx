@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext";
-import styles from "./addToCartButton.module.css";
+import { useContext } from 'react';
+import { CartContext } from '../../../context/CartContext';
+import styles from './addToCartButton.module.scss';
 
 export const AddToCartButton = (props) => {
   const { cart, setCart } = useContext(CartContext);

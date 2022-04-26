@@ -34,10 +34,7 @@ export default function Home() {
             Pathfinder, Call of Cthulhu, Coriolis and many more.
           </p>
         </Hero>
-        <h1>Edice startsida</h1>
-        <p>Lorem ipsum dolor sit amet</p>
-        <AddToCartButton />
-        <Cart />
+
         <Footer />
       </main>
     </>

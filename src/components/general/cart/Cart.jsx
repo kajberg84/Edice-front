@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from '../../../context/CartContext';
-import style from './Cart.module.css';
+import style from './Cart.module.scss';
 // import plus from '/icons/add_white_24dp.svg';
 // import minus from '/icons/remove_white_24dp.svg';
 

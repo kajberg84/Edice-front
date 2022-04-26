@@ -5,7 +5,7 @@ import { RoutingPath } from '../../../helpers/RoutingPath';
 import { Navbar } from '../navbar/Navbar';
 import { UserContext } from '../../../context/UserContext';
 // Styles
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 // Images
 // import logo from '../../assets/images/Edice_full_logo.svg';

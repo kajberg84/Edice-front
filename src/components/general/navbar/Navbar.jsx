@@ -13,7 +13,7 @@ import { Cart } from '../cart/Cart';
 // import CustomLink from '../../../utils/CustomLink';
 
 // Styles
-import styles from './Navbar.module.css';
+import styles from './Navbar.module.scss';
 
 // // Images
 // import emptyCartIcon from '../../assets/images/shopping_cart_icon.svg';

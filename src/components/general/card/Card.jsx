@@ -3,7 +3,7 @@ import { ProductModal } from "../productmodal/ProductModal";
 
 import { AddToCartButton } from "../addToCartButton/AddToCartButton";
 // styles
-import styles from "./Card.module.css";
+import styles from "./Card.module.scss";
 
 export const Card = ({ product }) => {
   const [showModal, setShowModal] = useState(false);
