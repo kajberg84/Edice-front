@@ -14,11 +14,11 @@ export const Footer = () => {
         </div>
         <Navbar navPosition="Bottom" />
         <nav className={styles.footer_nav}>
-          <Link className={styles.footer_nav_item} href={RoutingPath.Terms}>
-            <a>Terms and conditions</a>
+          <Link href={RoutingPath.Terms}>
+            <a className={styles.footer_nav_item}>Terms and conditions</a>
           </Link>
-          <Link className={styles.footer_nav_item} href={RoutingPath.Privacy}>
-            <a>Privacy</a>
+          <Link href={RoutingPath.Privacy}>
+            <a className={styles.footer_nav_item}>Privacy</a>
           </Link>
         </nav>
       </div>

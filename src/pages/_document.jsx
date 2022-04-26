@@ -18,7 +18,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          {/* Diven nedan är till för när man vill koppla modaler till en friliggande div */}
           <div id="modal-root"></div>
         </body>
       </Html>

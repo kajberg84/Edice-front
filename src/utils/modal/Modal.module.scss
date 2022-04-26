@@ -24,7 +24,8 @@
 .actions_wrapper {
   display: flex;
   justify-content: space-between;
-  justify-content: end;
+  justify-content: flex-end;
+  align-items: center;
   padding: 0.5rem;
 }
 

@@ -8,16 +8,12 @@ import { RoutingPath } from '../../../helpers/RoutingPath';
 import { UserContext } from '../../../context/UserContext';
 import { CartContext } from '../../../context/CartContext';
 import { Modal } from '../../../utils/modal/Modal';
-// import { removeLocalStorage } from '../../../utils/localStorageHandler';
+import { removeLocalStorage } from '../../../utils/localStorageHandler';
 import { Cart } from '../cart/Cart';
 // import CustomLink from '../../../utils/CustomLink';
 
 // Styles
 import styles from './Navbar.module.scss';
-
-// // Images
-// import emptyCartIcon from '../../assets/images/shopping_cart_icon.svg';
-// import cartIcon from '../../assets/images/shopping_cart_plus.svg';
 
 export const Navbar = (props) => {
   const { navPosition } = props;
@@ -44,22 +40,21 @@ export const Navbar = (props) => {
   }, [cart]);
 
   // Logout function
-  // const handleLogout = () => {
-  //   removeLocalStorage('edice-user');
-  //   setUser(null);
-  //   // navigate(RoutingPath.Login);
-  //   router.push(RoutingPath.Login);
-  // };
+  const handleLogout = () => {
+    removeLocalStorage('edice-user');
+    setUser(null);
+    router.push(RoutingPath.Login);
+  };
 
   // Navbar links if not logged in.
   const unAuthNavbar = () => {
     return (
       <>
-        <Link className={styles.nav_item} href={RoutingPath.Login}>
-          <a>Login</a>
+        <Link href={RoutingPath.Login}>
+          <a className={styles.nav_item}>Login</a>
         </Link>
-        <Link className={styles.nav_item} href={RoutingPath.Register}>
-          <a>Register</a>
+        <Link href={RoutingPath.Register}>
+          <a className={styles.nav_item}>Register</a>
         </Link>
       </>
     );
@@ -69,13 +64,12 @@ export const Navbar = (props) => {
   const authNavbar = () => {
     return (
       <>
-        <Link className={styles.nav_item} href={RoutingPath.Account}>
-          <a>Account</a>
+        <Link href={RoutingPath.Account}>
+          <a className={styles.nav_item}>Account</a>
         </Link>
-        {/* <button className={styles.nav_button} onClick={handleLogout}>
+        <button className={styles.nav_button} onClick={handleLogout}>
           Logout
-        </button> */}
-        <button className={styles.nav_button}>Logout</button>
+        </button>
       </>
     );
   };
@@ -88,7 +82,6 @@ export const Navbar = (props) => {
 
   // Checkoutbutton in shopping cart modal
   const handleToCheckout = () => {
-    // navigate(RoutingPath.Checkout);
     router.push(RoutingPath.Checkout);
     setModalvisible(false);
   };
@@ -96,11 +89,11 @@ export const Navbar = (props) => {
   return (
     <>
       <nav className={styles.nav}>
-        <Link className={styles.nav_item} href={RoutingPath.Home}>
-          <a>Shop</a>
+        <Link href={RoutingPath.Home}>
+          <a className={styles.nav_item}>Shop</a>
         </Link>
-        <Link className={styles.nav_item} href={RoutingPath.Checkout}>
-          <a>Checkout</a>
+        <Link href={RoutingPath.Checkout}>
+          <a className={styles.nav_item}>Checkout</a>
         </Link>
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>

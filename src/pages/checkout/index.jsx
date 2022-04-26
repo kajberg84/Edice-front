@@ -1,11 +1,9 @@
-///// ==== Ej refaktoriserad bara grund uppsatt
-
 // imports
+import { useContext } from 'react';
+import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useContext } from 'react';
-import { useRouter } from 'next/router';
 
 // context
 import { UserContext } from '../../context/UserContext';
@@ -52,6 +50,7 @@ export default function Checkout() {
 
   // Submit order function
   const onSubmit = (values) => {
+    // Denna behöver refaktoriseras så att den följer next routern alternativt att ändra denna helt och inte jobba med url parametrar
     router.push(
       `../${RoutingPath.OrderConfirmation}/${values.firstName}/${values.lastName}/${values.address}/${values.zipCode}/${values.city}/${values.phone}/${values.email}`
     );
@@ -71,7 +70,7 @@ export default function Checkout() {
   return (
     <>
       <Seo
-        title="E-dice Home page"
+        title="E-dice Checkout page"
         description="Lorem ipsum dolor sit amtet"
         image="/vercel.svg"
         pageUrl={RoutingPath.home}
