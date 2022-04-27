@@ -1,4 +1,4 @@
-@import "../../../styles/variabels.scss";
+@import '../../../styles/variabels.scss';
 
 .header {
   &_container {
@@ -12,10 +12,17 @@
     height: 120px;
     align-items: center;
     justify-content: space-between;
+    padding: 0 $sidespacing-mobile;
   }
 
   /* Storleken på loggan kan behöva ändras */
   &_logo {
     width: 35%;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    &_wrapper {
+      padding: 0;
+    }
   }
 }
