@@ -17,4 +17,8 @@
   @media (min-width: $breakpoint-l) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  @media (min-width: $breakpoint-xl) {
+    padding: 0;
+  }
+
 }
