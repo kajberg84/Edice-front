@@ -1,4 +1,4 @@
-@import "../../../styles/variabels.scss";
+@import '../../../styles/variabels.scss';
 
 .hero {
   &_container {
@@ -8,7 +8,7 @@
   &_content_wrapper {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 50px 0;
+    padding: 50px $sidespacing-mobile;
   }
 
   &_title {
@@ -18,5 +18,11 @@
   &_content {
     color: $color-white;
     font-size: $p-normal;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    &_content_wrapper {
+      padding: 50px 0;
+    }
   }
 }

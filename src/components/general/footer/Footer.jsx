@@ -16,15 +16,24 @@ export const Footer = () => {
     <footer className={styles.footer_container}>
       <div className={styles.footer_wrapper}>
         <div className={styles.footer_logo}>
-          <img src="/logos/Edice_logo_side.svg" alt="E-Dice logo" />
+          <Link href={RoutingPath.Home}>
+            <a>
+              <img src="/logos/Edice_logo_side.svg" alt="E-Dice logo" />
+            </a>
+          </Link>
         </div>
-        <Navbar navPosition="Bottom" />
+        <Navbar navPosition="Bottom" isFooter="true" />
         <nav className={styles.footer_nav}>
           <ActiveLink
             linkUrl={RoutingPath.Terms}
             linkText="Terms and conditions"
+            small="true"
           />
-          <ActiveLink linkUrl={RoutingPath.Privacy} linkText="Privacy" />
+          <ActiveLink
+            linkUrl={RoutingPath.Privacy}
+            linkText="Privacy"
+            small="true"
+          />
         </nav>
       </div>
     </footer>

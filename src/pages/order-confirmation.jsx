@@ -8,6 +8,7 @@ import { CartContext } from '../context/CartContext';
 import { Hero } from '../components/general/hero/Hero';
 import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
 import { Seo } from '../components/seo/Seo';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
 
 // helpers
 import { RoutingPath } from '../helpers/RoutingPath';
@@ -52,49 +53,53 @@ const OrderConfirmation = () => {
       />
       <div className={styles.order_confirmation_container}>
         <Hero title={'Order confirmation'} />
-        <div className={styles.order_confirmation_wrapper}>
-          <h2>Thank you for the order</h2>
-          <p>We will process your order as soon as possible.</p>
-          <div className={styles.order_confirmation_summary}>
-            <h3>Order Summary:</h3>
-            <h4 className={styles.order_confirmation_heading4}>
-              Products ordered:
-            </h4>
-            {order.map((product, index) => (
-              <ProductCardSmall
-                key={index}
-                title={product.title}
-                description={product.description}
-                quantity={product.quantity}
-                price={product.price * product.quantity}
-              />
-            ))}
-          </div>
-          <div className={styles.total_wrapper}>
-            <p className={styles.total}> Total: </p>
-            <p className={styles.total}>
-              {allPrices.length > 0
-                ? allPrices.reduce((total, price) => total + price)
-                : '0'}{' '}
-              $
-            </p>
-          </div>
-          <h4 className={styles.order_confirmation_heading4}>Delivery Info</h4>
-          {firstname && (
-            <div>
-              <ul>
-                <li>
-                  Name: {firstname}, {lastname}
-                </li>
-                <li>Address: {address}</li>
-                <li>Zip Code: {zipcode}</li>
-                <li>City: {city}</li>
-                <li>Phone: {phone}</li>
-                <li>Email: {email}</li>
-              </ul>
+        <Wrapper>
+          <div className={styles.order_confirmation_wrapper}>
+            <h2>Thank you for the order</h2>
+            <p>We will process your order as soon as possible.</p>
+            <div className={styles.order_confirmation_summary}>
+              <h3>Order Summary:</h3>
+              <h4 className={styles.order_confirmation_heading4}>
+                Products ordered:
+              </h4>
+              {order.map((product, index) => (
+                <ProductCardSmall
+                  key={index}
+                  title={product.title}
+                  description={product.description}
+                  quantity={product.quantity}
+                  price={product.price * product.quantity}
+                />
+              ))}
             </div>
-          )}
-        </div>
+            <div className={styles.total_wrapper}>
+              <p className={styles.total}> Total: </p>
+              <p className={styles.total}>
+                {allPrices.length > 0
+                  ? allPrices.reduce((total, price) => total + price)
+                  : '0'}{' '}
+                $
+              </p>
+            </div>
+            <h4 className={styles.order_confirmation_heading4}>
+              Delivery Info
+            </h4>
+            {firstname && (
+              <div>
+                <ul>
+                  <li>
+                    Name: {firstname}, {lastname}
+                  </li>
+                  <li>Address: {address}</li>
+                  <li>Zip Code: {zipcode}</li>
+                  <li>City: {city}</li>
+                  <li>Phone: {phone}</li>
+                  <li>Email: {email}</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </Wrapper>
       </div>
     </>
   );

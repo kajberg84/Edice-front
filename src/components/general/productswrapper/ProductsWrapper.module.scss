@@ -1,10 +1,24 @@
-@import "../../../styles/variabels.scss";
+@import '../../../styles/variabels.scss';
 
 .products_wrapper {
-  display: flex;
+  display: grid;
   max-width: 1200px;
   margin: 50px auto;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  grid-template-columns: 1fr;
+  padding: 0 $sidespacing-mobile;
+
+  @media (min-width: $breakpoint-s) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  @media (min-width: $breakpoint-l) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  @media (min-width: $breakpoint-xl) {
+    padding: 0;
+  }
+
 }

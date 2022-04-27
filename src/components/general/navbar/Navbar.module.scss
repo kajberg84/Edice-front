@@ -1,6 +1,6 @@
 /* Poppins regular and bold */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-@import "../../../styles/variabels.scss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import '../../../styles/variabels.scss';
 
 .nav {
   display: flex;
@@ -28,7 +28,48 @@
     margin-left: 20px;
     font-size: $p-normal;
     transition: 0.5s;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
+
+    &:hover {
+      color: $color-grey;
+      text-decoration: underline;
+      transition: 0.5s;
+    }
+  }
+}
+
+// footer styling
+
+.footer_nav {
+  display: grid;
+  gap: 15px;
+  @media (min-width: $breakpoint-l) {
+    display: flex;
+    align-items: center;
+  }
+
+  .cart_icon {
+    width: 30px;
+  }
+
+  .icon_wrapper {
+    display: flex;
+    cursor: pointer;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: $color-black;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: $p-normal;
+    transition: 0.5s;
+    font-family: 'Poppins', sans-serif;
 
     &:hover {
       color: $color-grey;
