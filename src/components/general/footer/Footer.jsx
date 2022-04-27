@@ -16,7 +16,11 @@ export const Footer = () => {
     <footer className={styles.footer_container}>
       <div className={styles.footer_wrapper}>
         <div className={styles.footer_logo}>
-          <img src="/logos/Edice_logo_side.svg" alt="E-Dice logo" />
+          <Link href={RoutingPath.Home}>
+            <a>
+              <img src="/logos/Edice_logo_side.svg" alt="E-Dice logo" />
+            </a>
+          </Link>
         </div>
         <Navbar navPosition="Bottom" />
         <nav className={styles.footer_nav}>
