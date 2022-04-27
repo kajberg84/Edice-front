@@ -10,7 +10,7 @@ html {
 
 body {
   font-size: $p-small;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Heading styles */
@@ -41,7 +41,7 @@ h3 {
 
 /* Paragraph styles */
 p {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: $p-small;
   font-weight: 400;
   line-height: $line-height-normal;
@@ -65,3 +65,5 @@ a {
   text-decoration: none;
   color: $color-black;
 }
+
+

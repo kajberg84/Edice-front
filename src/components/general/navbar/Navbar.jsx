@@ -1,30 +1,31 @@
 // imports
-import { useContext, useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 // context
-import { UserContext } from "../../../context/UserContext";
-import { CartContext } from "../../../context/CartContext";
+import { UserContext } from '../../../context/UserContext';
+import { CartContext } from '../../../context/CartContext';
 
 // components
-import { Modal } from "../../../utils/modal/Modal";
-import { removeLocalStorage } from "../../../utils/localStorageHandler";
-import { Cart } from "../cart/Cart";
-import { ActiveLink } from "../../../utils/ActiveLink";
+import { Modal } from '../../../utils/modal/Modal';
+import { removeLocalStorage } from '../../../utils/localStorageHandler';
+import { Cart } from '../cart/Cart';
+import { ActiveLink } from '../../../utils/ActiveLink';
 
 // helpers
-import { RoutingPath } from "../../../helpers/RoutingPath";
+import { RoutingPath } from '../../../helpers/RoutingPath';
 
 // Styles
-import styles from "./Navbar.module.scss";
+import styles from './Navbar.module.scss';
 
 export const Navbar = (props) => {
-  const { navPosition } = props;
+  const { navPosition, isFooter } = props;
 
-  const [navPositionClicked, setNavPositionClicked] = useState("");
+  const [navPositionClicked, setNavPositionClicked] = useState('');
   const { user, setUser } = useContext(UserContext);
 
   const [modalVisible, setModalvisible] = useState(false);
+  const [displayBlock, setDisplayBlock] = useState(false);
 
   const { cart } = useContext(CartContext);
 
@@ -42,9 +43,15 @@ export const Navbar = (props) => {
     updateItemsInCart();
   }, [cart]);
 
+  useEffect(() => {
+    if (isFooter === 'true') {
+      setDisplayBlock(true);
+    }
+  }, [isFooter]);
+
   // Logout function
   const handleLogout = () => {
-    removeLocalStorage("edice-user");
+    removeLocalStorage('edice-user');
     setUser(null);
     router.push(RoutingPath.Login);
   };
@@ -83,9 +90,19 @@ export const Navbar = (props) => {
     setModalvisible(false);
   };
 
+  const handleNavbarStyling = () => {
+    if (displayBlock === true) {
+      console.log(displayBlock + 'displayBlock');
+      return styles.footer_nav;
+    } else {
+      console.log(displayBlock + 'displayBlock');
+      return styles.nav;
+    }
+  };
+
   return (
     <>
-      <nav className={styles.nav}>
+      <nav className={handleNavbarStyling()}>
         <ActiveLink linkUrl={RoutingPath.Home} linkText="Shop" />
         <ActiveLink linkUrl={RoutingPath.Checkout} linkText="Checkout" />
 
@@ -110,7 +127,7 @@ export const Navbar = (props) => {
             (
             {itemsInCart.length > 0
               ? itemsInCart.reduce((total, price) => total + price)
-              : "0"}
+              : '0'}
             )
           </p>
         </div>

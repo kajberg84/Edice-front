@@ -22,13 +22,18 @@ export const Footer = () => {
             </a>
           </Link>
         </div>
-        <Navbar navPosition="Bottom" />
+        <Navbar navPosition="Bottom" isFooter="true" />
         <nav className={styles.footer_nav}>
           <ActiveLink
             linkUrl={RoutingPath.Terms}
             linkText="Terms and conditions"
+            small="true"
           />
-          <ActiveLink linkUrl={RoutingPath.Privacy} linkText="Privacy" />
+          <ActiveLink
+            linkUrl={RoutingPath.Privacy}
+            linkText="Privacy"
+            small="true"
+          />
         </nav>
       </div>
     </footer>
