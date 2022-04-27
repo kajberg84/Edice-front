@@ -51,9 +51,7 @@ export default function Checkout() {
   // Submit order function
   const onSubmit = (values) => {
     // Denna behöver refaktoriseras så att den följer next routern alternativt att ändra denna helt och inte jobba med url parametrar
-    router.push(
-      `../${RoutingPath.OrderConfirmation}/${values.firstName}/${values.lastName}/${values.address}/${values.zipCode}/${values.city}/${values.phone}/${values.email}`
-    );
+    router.push(`${RoutingPath.OrderConfirmation}`);
     console.log(
       'your order with details:' + JSON.stringify(values) + ' is confirmed'
     );
