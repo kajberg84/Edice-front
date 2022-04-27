@@ -1,11 +1,11 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <link rel="shortcut icon" href="/favicon.io" />
+          <link rel="shortcut icon" href="/edice_logo_fav.svg" />
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
             rel="stylesheet"
