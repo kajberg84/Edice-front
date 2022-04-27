@@ -1,20 +1,22 @@
-.hero_container {
-  background-color: rgb(57, 57, 57);
+@import "../../../styles/variabels.scss";
+
+.hero {
+  &_container {
+    background-color: $color-grey-dark;
+  }
+
+  &_content_wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+
+  &_title {
+    color: $color-white;
+  }
+
+  &_content {
+    color: $color-white;
+    font-size: $p-normal;
+  }
 }
-
-.hero_content_wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 50px 0;
-}
-
-.hero_title {
-  color: #fff;
-}
-
-.hero_content {
-  color: #fff;
-  font-size: 1.8rem;
-}
-
-

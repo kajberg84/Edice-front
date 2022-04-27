@@ -1,27 +1,27 @@
 // imports
-import { useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 // context
-import { UserContext } from '../../../context/UserContext';
-import { CartContext } from '../../../context/CartContext';
+import { UserContext } from "../../../context/UserContext";
+import { CartContext } from "../../../context/CartContext";
 
 // components
-import { Modal } from '../../../utils/modal/Modal';
-import { removeLocalStorage } from '../../../utils/localStorageHandler';
-import { Cart } from '../cart/Cart';
-import { ActiveLink } from '../../../utils/ActiveLink';
+import { Modal } from "../../../utils/modal/Modal";
+import { removeLocalStorage } from "../../../utils/localStorageHandler";
+import { Cart } from "../cart/Cart";
+import { ActiveLink } from "../../../utils/ActiveLink";
 
 // helpers
-import { RoutingPath } from '../../../helpers/RoutingPath';
+import { RoutingPath } from "../../../helpers/RoutingPath";
 
 // Styles
-import styles from './Navbar.module.scss';
+import styles from "./Navbar.module.scss";
 
 export const Navbar = (props) => {
   const { navPosition } = props;
 
-  const [navPositionClicked, setNavPositionClicked] = useState('');
+  const [navPositionClicked, setNavPositionClicked] = useState("");
   const { user, setUser } = useContext(UserContext);
 
   const [modalVisible, setModalvisible] = useState(false);
@@ -44,7 +44,7 @@ export const Navbar = (props) => {
 
   // Logout function
   const handleLogout = () => {
-    removeLocalStorage('edice-user');
+    removeLocalStorage("edice-user");
     setUser(null);
     router.push(RoutingPath.Login);
   };
@@ -110,7 +110,7 @@ export const Navbar = (props) => {
             (
             {itemsInCart.length > 0
               ? itemsInCart.reduce((total, price) => total + price)
-              : '0'}
+              : "0"}
             )
           </p>
         </div>

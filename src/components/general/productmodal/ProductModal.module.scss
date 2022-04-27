@@ -1,62 +1,62 @@
-.modal_backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.801);
-}
+@import "../../../styles/variabels.scss";
 
 .modal {
   padding: 30px;
   max-width: 1000px;
   margin: 100px auto;
-  background-color: #e3e1e1;
+  background-color: $color-off-white;
   border-radius: 30px;
   z-index: 1000;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
   min-height: 60vh;
-}
 
-.modal_img_wrapper {
-  margin: auto 0;
-}
+  &_backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.801);
+  }
+  &_img_wrapper {
+    margin: auto 0;
 
-.modal_img_wrapper img {
-  border-radius: 10px;
-}
-
-.modal_content_wrapper {
-  margin-top: 60px;
-}
-
-.modal_add_to_cart_button {
-  border: none;
-  outline: none;
-  background-color: rgb(33, 33, 33);
-  color: #fff;
-  padding: 15px 30px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
-}
-
-.modal_add_to_cart_button:hover {
-    background-color: #fff;
-    color: #000000;
-    border: 2px solid #000000;
+    img {
+      border-radius: 10px;
+    }
   }
 
-.modal_close {
-  display: flex;
-  justify-content: flex-end;
-}
+  &_content_wrapper {
+    margin-top: 60px;
+  }
 
-.modal_close_icon {
-    width: 40px;
+  &_add_to_cart_button {
+    border: none;
+    outline: none;
+    background-color: rgb(33, 33, 33);
+    color: $color-white;
+    padding: 15px 30px;
+    border-radius: 50px;
     cursor: pointer;
-}
+    font-size: 16px;
+    margin-top: 20px;
 
+    &:hover {
+      background-color: $color-white;
+      color: $color-black;
+      border: 2px solid $color-black;
+    }
+  }
+
+  &_close {
+    display: flex;
+    justify-content: flex-end;
+
+    &_icon {
+      width: 40px;
+      cursor: pointer;
+    }
+  }
+}

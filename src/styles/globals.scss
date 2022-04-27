@@ -1,8 +1,8 @@
 /* Imports */
 
-@import './normalize.scss';
-@import './variabels.scss';
-@import './fonts.scss';
+@import "./normalize.scss";
+@import "./variabels.scss";
+@import "./fonts.scss";
 
 /* Base styling */
 
@@ -32,14 +32,14 @@ input + input {
   margin-top: 10px;
 }
 
-input[type='button'] {
+input[type="button"] {
   cursor: pointer;
   background-color: rgba(85, 85, 85, 0.918);
   color: #fff;
   font-size: 1.8rem;
 }
 
-input[type='button']:hover {
+input[type="button"]:hover {
   background-color: rgb(49, 49, 49);
 }
 
@@ -66,14 +66,26 @@ input[type='button']:hover {
 }
 
 .activeLink {
-  color: rgb(40, 12, 155);
+  text-decoration: underline;
   font-size: 1.8rem;
   margin-left: 20px;
   transition: 0.5s;
+
+  &:hover {
+    color: $color-grey;
+    text-decoration: underline;
+    transition: 0.5s;
+  }
 }
 
-.nav-item {
+.nav_item {
   font-size: 1.8rem;
   margin-left: 20px;
   transition: 0.5s;
+
+  &:hover {
+    color: $color-grey;
+    text-decoration: underline;
+    transition: 0.5s;
+  }
 }

@@ -1,43 +1,39 @@
 /* Poppins regular and bold */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import "../../../styles/variabels.scss";
 
 .nav {
   display: flex;
   align-items: center;
-}
 
-.nav_item {
-  font-size: 1.8rem;
-  margin-left: 20px;
-  transition: 0.5s;
-}
+  .cart_icon {
+    width: 30px;
+  }
 
-.nav_item:hover {
-  color: rgb(61, 61, 61);
-  transition: 0.5s;
-}
+  &_icon_wrapper {
+    display: flex;
+    cursor: pointer;
+  }
 
-.cart_icon {
-  width: 30px;
-}
+  &_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: $color-black;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: $p-normal;
+    transition: 0.5s;
+    font-family: "Poppins", sans-serif;
 
-.nav_icon_wrapper {
-  display: flex;
-  cursor: pointer;
-}
-
-.nav_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  color: black;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-left: 20px;
-  font-size: 1.8rem;
-  transition: 0.5s;
-  font-family: 'Poppins', sans-serif;
+    &:hover {
+      color: $color-grey;
+      text-decoration: underline;
+      transition: 0.5s;
+    }
+  }
 }
