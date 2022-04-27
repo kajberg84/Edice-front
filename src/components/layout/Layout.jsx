@@ -1,5 +1,5 @@
 // components
-import { Header } from '../general/header/Header';
+import { Header } from '../general/header';
 import { Footer } from '../general/footer/Footer';
 
 export const Layout = ({ children }) => {

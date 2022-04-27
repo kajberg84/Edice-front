@@ -14,7 +14,7 @@ import { RoutingPath } from '../../../helpers/RoutingPath';
 // Styles
 import styles from './Header.module.scss';
 
-export const Header = () => {
+export const GuestHeader = () => {
   const { user } = useContext(UserContext);
 
   return (
@@ -31,7 +31,6 @@ export const Header = () => {
             </a>
           </Link>
         </div>
-        {user ? <p>Hello {user.fname}</p> : <p>Guest</p>}
         <Navbar navPosition="Top" />
       </div>
     </header>
