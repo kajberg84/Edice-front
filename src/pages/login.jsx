@@ -10,6 +10,7 @@ import { UserContext } from '../context/UserContext';
 
 // components
 import { Seo } from '../components/seo/Seo';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
 
 // helpers
 import { RoutingPath } from '../helpers/RoutingPath';
@@ -68,29 +69,34 @@ export default function Login() {
       />
 
       <>
-        <div className={styles.login_container}>
-          <div className={styles.login_wrapper}>
-            <h2>Sign In to E-dice</h2>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className={styles.login_form}
-            >
-              <input {...register('email')} placeholder="Type in your email" />
-              <p>{errors.email?.message}</p>
-              <input
-                {...register('password')}
-                placeholder="Type in your password"
-                type="password"
-              />
-              <button
-                type="submit"
-                className={`${styles.loginbutton} formButton`}
+        <Wrapper>
+          <div className={styles.login_container}>
+            <div className={styles.login_wrapper}>
+              <h2>Sign In to E-dice</h2>
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className={styles.login_form}
               >
-                Sign in
-              </button>
-            </form>
+                <input
+                  {...register('email')}
+                  placeholder="Type in your email"
+                />
+                <p>{errors.email?.message}</p>
+                <input
+                  {...register('password')}
+                  placeholder="Type in your password"
+                  type="password"
+                />
+                <button
+                  type="submit"
+                  className={`${styles.loginbutton} formButton`}
+                >
+                  Sign in
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
+        </Wrapper>
       </>
     </>
   );

@@ -13,6 +13,7 @@ import { CartContext } from '../context/CartContext';
 import { Seo } from '../components/seo/Seo';
 import { Hero } from '../components/general/hero/Hero';
 import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
 
 // helpers
 import { RoutingPath } from '../helpers/RoutingPath';
@@ -76,103 +77,105 @@ export default function Checkout() {
 
       <>
         <Hero title="Checkout" />
-        <div className={styles.checkout_wrapper}>
-          <div className={styles.checkout_product_list}>
-            <div className={styles.checkout_product_cart_display}>
-              <h2>Your cart</h2>
-              {cart.map((product, index) => (
-                <ProductCardSmall
-                  key={index}
-                  title={product.title}
-                  description={product.description}
-                  quantity={product.quantity}
-                  price={product.price * product.quantity}
-                />
-              ))}
-            </div>
+        <Wrapper>
+          <div className={styles.checkout_wrapper}>
+            <div className={styles.checkout_product_list}>
+              <div className={styles.checkout_product_cart_display}>
+                <h2>Your cart</h2>
+                {cart.map((product, index) => (
+                  <ProductCardSmall
+                    key={index}
+                    title={product.title}
+                    description={product.description}
+                    quantity={product.quantity}
+                    price={product.price * product.quantity}
+                  />
+                ))}
+              </div>
 
-            <div className={styles.total_wrapper}>
-              <p className={styles.total}> Total: </p>
-              <p className={styles.total}>
-                {allPrices.length > 0
-                  ? allPrices.reduce((total, price) => total + price)
-                  : '0'}{' '}
-                $
-              </p>
+              <div className={styles.total_wrapper}>
+                <p className={styles.total}> Total: </p>
+                <p className={styles.total}>
+                  {allPrices.length > 0
+                    ? allPrices.reduce((total, price) => total + price)
+                    : '0'}{' '}
+                  $
+                </p>
+              </div>
             </div>
+            <form
+              className={styles.checkout_form}
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              {user ? (
+                <h3>{user.fname}, controll your information to make a order</h3>
+              ) : (
+                <h3>Type in your information to make a order</h3>
+              )}
+
+              <label>First Name</label>
+              <input
+                {...register('firstName')}
+                autoComplete="given-name"
+                placeholder="First name..."
+                defaultValue={user?.fname}
+              />
+              <p>{errors.firstName?.message}</p>
+
+              <label>Last Name</label>
+              <input
+                {...register('lastName')}
+                autoComplete="family-name"
+                placeholder="Last name..."
+                defaultValue={user?.lname}
+              />
+              <p>{errors.lastName?.message}</p>
+              <label>Adress</label>
+              <input
+                {...register('address')}
+                autoComplete="street-address"
+                placeholder="Address..."
+                defaultValue={user?.adress}
+              />
+              <p>{errors.address?.message}</p>
+              <label>Zip Code</label>
+              <input
+                {...register('zipCode')}
+                autoComplete="postal-code"
+                placeholder="Zip code..."
+                defaultValue={user?.zipCode}
+              />
+              <p>{errors.zipCode?.message}</p>
+              <label>City</label>
+              <input
+                {...register('city')}
+                autoComplete="city"
+                placeholder="City..."
+                defaultValue={user?.city}
+              />
+              <p>{errors.city?.message}</p>
+              <label>Phone</label>
+              <input
+                {...register('phone')}
+                autoComplete="tel"
+                placeholder="Phone number..."
+                defaultValue={user?.phone}
+              />
+              <p>{errors.phone?.message}</p>
+              <label>E-mail</label>
+              <input
+                {...register('email')}
+                autoComplete="email"
+                placeholder="E-mail..."
+                defaultValue={user?.email}
+              />
+              <p>{errors.email?.message}</p>
+              <button type="submit" className="formButton">
+                Confirm order
+              </button>
+            </form>
           </div>
-          <form
-            className={styles.checkout_form}
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            {user ? (
-              <h3>{user.fname}, controll your information to make a order</h3>
-            ) : (
-              <h3>Type in your information to make a order</h3>
-            )}
-
-            <label>First Name</label>
-            <input
-              {...register('firstName')}
-              autoComplete="given-name"
-              placeholder="First name..."
-              defaultValue={user?.fname}
-            />
-            <p>{errors.firstName?.message}</p>
-
-            <label>Last Name</label>
-            <input
-              {...register('lastName')}
-              autoComplete="family-name"
-              placeholder="Last name..."
-              defaultValue={user?.lname}
-            />
-            <p>{errors.lastName?.message}</p>
-            <label>Adress</label>
-            <input
-              {...register('address')}
-              autoComplete="street-address"
-              placeholder="Address..."
-              defaultValue={user?.adress}
-            />
-            <p>{errors.address?.message}</p>
-            <label>Zip Code</label>
-            <input
-              {...register('zipCode')}
-              autoComplete="postal-code"
-              placeholder="Zip code..."
-              defaultValue={user?.zipCode}
-            />
-            <p>{errors.zipCode?.message}</p>
-            <label>City</label>
-            <input
-              {...register('city')}
-              autoComplete="city"
-              placeholder="City..."
-              defaultValue={user?.city}
-            />
-            <p>{errors.city?.message}</p>
-            <label>Phone</label>
-            <input
-              {...register('phone')}
-              autoComplete="tel"
-              placeholder="Phone number..."
-              defaultValue={user?.phone}
-            />
-            <p>{errors.phone?.message}</p>
-            <label>E-mail</label>
-            <input
-              {...register('email')}
-              autoComplete="email"
-              placeholder="E-mail..."
-              defaultValue={user?.email}
-            />
-            <p>{errors.email?.message}</p>
-            <button type="submit" className="formButton">
-              Confirm order
-            </button>
-          </form>
-        </div>
+        </Wrapper>
       </>
     </>
   );

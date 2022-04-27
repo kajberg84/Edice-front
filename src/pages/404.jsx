@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 // components
 import { Seo } from '../components/seo/Seo';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
 
 // helpers
 import { RoutingPath } from '../helpers/RoutingPath';
@@ -19,21 +20,23 @@ export default function NotFound() {
         image="/vercel.svg"
         pageUrl={RoutingPath.home}
       />
-      <div className={styles.notfound_wrapper}>
-        <div className={styles.notfound_img_wrapper}>
-          <img
-            className={styles.notfound_img}
-            src="/images/notfound.svg"
-            alt="Page Not Found"
-          />
+      <Wrapper>
+        <div className={styles.notfound_wrapper}>
+          <div className={styles.notfound_img_wrapper}>
+            <img
+              className={styles.notfound_img}
+              src="/images/notfound.svg"
+              alt="Page Not Found"
+            />
+          </div>
+          <div className={styles.notfound_text_wrapper}>
+            <h1>Page not Found - 404</h1>
+            <Link href={RoutingPath.Home}>
+              <a className={styles.notfound_button}>Go back to the homepage</a>
+            </Link>
+          </div>
         </div>
-        <div className={styles.notfound_text_wrapper}>
-          <h1>Page not Found - 404</h1>
-          <Link href={RoutingPath.Home}>
-            <a className={styles.notfound_button}>Go back to the homepage</a>
-          </Link>
-        </div>
-      </div>
+      </Wrapper>
     </>
   );
 }
