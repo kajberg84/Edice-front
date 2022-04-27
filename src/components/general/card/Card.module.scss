@@ -1,32 +1,36 @@
-.card_wrapper {
-  border-radius: 20px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  flex: 1 0 21%;
-}
+@import "../../../styles/variabels.scss";
 
-.card_img_wrapper img {
-  height: 150px;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
-  cursor: pointer;
-}
+.card {
+  &_wrapper {
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    flex: 1 0 21%;
+  }
 
-.card_content_wrapper {
-  padding: 20px 10px;
-}
+  &_img_wrapper img {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    cursor: pointer;
+  }
 
-.card_title {
-  font-size: 2.5rem;
-}
+  &_content_wrapper {
+    padding: 20px 10px;
+  }
 
-.card_description {
-  font-size: 1.8rem;
-}
+  &_title {
+    font-size: $title-4;
+  }
 
-.card_material {
-  font-size: 1rem;
-}
+  &_description {
+    font-size: $p-normal;
+  }
 
-.card_price {
-  font-size: 2rem;
+  &_material {
+    font-size: $p-xsmall;
+  }
+
+  &_price {
+    font-size: $p-large;
+  }
 }

@@ -8,6 +8,8 @@ $color-primary-purple: #5f1a24;
 
 $color-off-white: #fefbf0;
 $color-grey: #525252;
+$color-grey-dark: #393939;
+$color-mid-grey: #cbcbcb; //footer background
 $color-light-grey: #aeaeae;
 $color-green-grey: #316148;
 
@@ -15,6 +17,7 @@ $color-black: #000;
 $color-white: #fff;
 
 $color-error: rgb(196, 89, 89);
+$color-shadow: #64646f33;
 
 // font sizes
 
@@ -22,6 +25,7 @@ $color-error: rgb(196, 89, 89);
 $p-large: 2rem;
 $p-normal: 1.8rem;
 $p-small: 1.6rem;
+$p-xsmall: 1rem;
 
 // - rubriker
 $title-1: 5rem;
@@ -39,8 +43,8 @@ $line-height-h2: 1.2;
 $line-height-h1: 1.1;
 
 // font-family
-$font-family-primary: 'Montserrat', sans-serif;
-$font-family-title: 'Roboto Slab', serif;
+$font-family-primary: "Montserrat", sans-serif;
+$font-family-title: "Roboto Slab", serif;
 
 // spacing
 
