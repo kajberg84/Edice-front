@@ -1,6 +1,6 @@
 export const RoutingPath = {
   Home: '/',
-  Shop: 'shop',
+  Shop: '/',
   Checkout: 'checkout',
   Login: 'login',
   Account: 'account',
