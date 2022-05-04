@@ -7,19 +7,16 @@ export const Modal = (props) => {
   const modalPositionStyle = {
     position: 'fixed',
     top: '100px',
-    right: '3rem',
   };
 
   const modalPositionStyleTop = {
     position: 'fixed',
     top: '100px',
-    right: '3rem',
   };
 
   const modalPositionStyleBottom = {
     position: 'fixed',
     bottom: '180px',
-    right: '3rem',
   };
   const decidePosition = (string) => {
     if (string === 'Top') {
