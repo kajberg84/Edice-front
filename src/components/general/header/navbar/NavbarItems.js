@@ -1,7 +1,7 @@
 import { RoutingPath } from '../../../../helpers/RoutingPath';
 
 export const NavbarItems = {
-  guestNav: [
+  guest: [
     {
       name: 'Shop',
       link: RoutingPath.Shop,
@@ -19,7 +19,7 @@ export const NavbarItems = {
       link: RoutingPath.Register,
     },
   ],
-  userNav: [
+  user: [
     {
       name: 'Shop',
       link: RoutingPath.Shop,
@@ -32,6 +32,27 @@ export const NavbarItems = {
       name: 'Account',
       link: RoutingPath.Account,
     },
+    {
+      name: 'Sign Out',
+      link: RoutingPath.Account,
+    },
   ],
-  adminNav: [],
+  admin: [
+    {
+      name: 'Products',
+      link: RoutingPath.Shop,
+    },
+    {
+      name: 'Users',
+      link: RoutingPath.Checkout,
+    },
+    {
+      name: 'Account',
+      link: RoutingPath.Account,
+    },
+    {
+      name: 'Sign Out',
+      link: RoutingPath.Account,
+    },
+  ],
 };

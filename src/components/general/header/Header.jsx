@@ -9,6 +9,7 @@ import { UserContext } from '../../../context/UserContext';
 // components
 import { HeaderNavbar } from './navbar/HeaderNavbar';
 import { HeaderModal } from './headerModal/HeaderModal';
+import { HeaderCart } from './headerCart/HeaderCart';
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
@@ -24,6 +25,8 @@ export const Header = () => {
   const { user } = useContext(UserContext);
 
   const [showModal, setShowModal] = React.useState(false);
+  const [userLevel, setUserLevel] = React.useState(3);
+  const [navItems, setNavItems] = React.useState(NavbarItems.guest);
 
   // lockScroll kan brytas ut till en custom hook
   const lockScroll = React.useCallback(() => {
@@ -44,7 +47,19 @@ export const Header = () => {
     unlockScroll();
   };
 
-  console.log(NavbarItems);
+  // lösning för att rendera ut navbaritems för användare (kanske ej är helt optimal lösning)
+  React.useEffect(() => {
+    switch (userLevel) {
+      case 1:
+        setNavItems(NavbarItems.guest);
+        break;
+      case 2:
+        setNavItems(NavbarItems.user);
+        break;
+      case 3:
+        setNavItems(NavbarItems.admin);
+    }
+  }, [userLevel, navItems]);
 
   return (
     <header className={styles.header_container}>
@@ -60,17 +75,15 @@ export const Header = () => {
             </a>
           </Link>
         </div>
-        <HeaderNavbar navPosition="Top" />
-
-        <div className={styles.mobile}>
-          <MenuIcon className="menu-icon" onClick={openModal} />
-          {/* <button >Show modal</button> */}
-          {showModal && (
-            <HeaderModal
-              onCloseModal={closeModal}
-              headerItems={NavbarItems.guestNav}
-            />
-          )}
+        <div className={styles.flex}>
+          <HeaderNavbar navbarItems={navItems} />
+          <HeaderCart navPosition="Top" />
+          <div className={styles.mobile}>
+            <MenuIcon className="menu-icon" onClick={openModal} />
+            {showModal && (
+              <HeaderModal onCloseModal={closeModal} headerItems={navItems} />
+            )}
+          </div>
         </div>
       </div>
     </header>

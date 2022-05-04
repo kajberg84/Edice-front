@@ -25,7 +25,7 @@ export const HeaderModal = ({ onCloseModal, headerItems }) => {
           <HeaderModalLogo onCloseModal={onCloseModal} />
           <Image
             className={styles.icon}
-            src={closeIcon}
+            src="/icons/x-circle.svg"
             alt="close Icon"
             width={40}
             height={40}
