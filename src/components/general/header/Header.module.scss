@@ -17,12 +17,25 @@
 
   /* Storleken på loggan kan behöva ändras */
   &_logo {
-    width: 35%;
+    width: 120px;
   }
 
   @media (min-width: $breakpoint-xl) {
     &_wrapper {
       padding: 0;
     }
+
+    &_logo {
+      width: 150px;
+    }
   }
+}
+@media (min-width: 900px) {
+  .mobile {
+    display: none;
+  }
+}
+
+.flex {
+  display: flex;
 }

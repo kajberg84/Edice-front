@@ -1,0 +1,46 @@
+// imports
+// @import '../../../../styles/variables.module.scss';
+
+// styling
+
+.header_modal_container {
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translateZ(1px);
+  -moz-transform: translateZ(1px);
+  -o-transform: translateZ(1px);
+  transform: translateZ(1px);
+  height: 150vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+.header_modal_wrapper {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  nav li {
+    list-style: none;
+  }
+}
+
+.header_modal_top_section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.social_icons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+  margin-top: 60px;
+}
