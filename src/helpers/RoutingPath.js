@@ -8,4 +8,5 @@ export const RoutingPath = {
   Register: 'register',
   Terms: 'terms',
   Privacy: 'privacy',
+  Contact: 'contact',
 };
