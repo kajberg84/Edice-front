@@ -3,6 +3,7 @@
 @import './normalize.scss';
 @import './variabels.scss';
 @import './fonts.scss';
+@import './buttons.scss';
 
 /* Base styling */
 
@@ -33,38 +34,7 @@ input + input {
   margin-top: 10px;
 }
 
-input[type='button'] {
-  cursor: pointer;
-  background-color: rgba(85, 85, 85, 0.918);
-  color: #fff;
-  font-size: 1.8rem;
-}
 
-input[type='button']:hover {
-  background-color: rgb(49, 49, 49);
-}
-
-.formButton {
-  border: none;
-  width: 100%;
-  outline: none;
-  padding: 20px 20px;
-  background-color: #000000;
-  color: #fff;
-  border-radius: 50px;
-  font-size: 2rem;
-  cursor: pointer;
-  margin-top: 10px;
-  border: 2px solid #000000;
-  transition: 0.5s;
-}
-
-.formButton:hover {
-  background-color: #fff;
-  color: #000000;
-  border: 2px solid #000000;
-  transition: 0.5s;
-}
 
 .activeLink {
   text-decoration: underline;

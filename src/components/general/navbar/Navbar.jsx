@@ -11,6 +11,7 @@ import { Modal } from '../../../utils/modal/Modal';
 import { removeLocalStorage } from '../../../utils/localStorageHandler';
 import { Cart } from '../cart/Cart';
 import { ActiveLink } from '../../../utils/ActiveLink';
+import { OnClickButton } from '../buttons';
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
@@ -138,8 +139,16 @@ export const Navbar = (props) => {
           content={<Cart />}
           actions={
             <div>
-              <button onClick={() => setModalvisible(false)}>close</button>
-              <button onClick={() => handleToCheckout()}> to Checkout</button>
+              <OnClickButton
+                onClickHandler={() => setModalvisible(false)}
+                text="close"
+                type="primary"
+              />
+              <OnClickButton
+                onClickHandler={() => handleToCheckout()}
+                text="to Checkout"
+                type="primary"
+              />
             </div>
           }
         />

@@ -1,6 +1,6 @@
 import React from 'react';
+
 // imports
-import { useContext, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 // context
@@ -9,6 +9,7 @@ import { CartContext } from '../../../../context/CartContext';
 // components
 import { Modal } from '../../../../utils/modal/Modal';
 import { Cart } from '../../cart/Cart';
+import { OnClickButton } from '../../buttons';
 
 // helpers
 import { RoutingPath } from '../../../../helpers/RoutingPath';
@@ -17,17 +18,17 @@ import { RoutingPath } from '../../../../helpers/RoutingPath';
 import styles from './HeaderCart.module.scss';
 
 export const HeaderCart = ({ navPosition }) => {
-  const { cart } = useContext(CartContext);
-  const [navPositionClicked, setNavPositionClicked] = useState('');
-  const [modalVisible, setModalvisible] = useState(false);
+  const { cart } = React.useContext(CartContext);
+  const [navPositionClicked, setNavPositionClicked] = React.useState('');
+  const [modalVisible, setModalvisible] = React.useState(false);
 
   const router = useRouter();
 
-  const [itemsInCart, setItemsInCart] = useState(
+  const [itemsInCart, setItemsInCart] = React.useState(
     cart.map((item) => item.quantity)
   );
 
-  useEffect(() => {
+  React.useEffect(() => {
     const updateItemsInCart = () => {
       setItemsInCart(cart.map((item) => item.quantity));
     };
@@ -78,8 +79,16 @@ export const HeaderCart = ({ navPosition }) => {
           content={<Cart />}
           actions={
             <div>
-              <button onClick={() => setModalvisible(false)}>close</button>
-              <button onClick={() => handleToCheckout()}> to Checkout</button>
+              <OnClickButton
+                onClickHandler={() => setModalvisible(false)}
+                text="close"
+                type="primary"
+              />
+              <OnClickButton
+                onClickHandler={() => handleToCheckout()}
+                text="to Checkout"
+                type="primary"
+              />
             </div>
           }
         />
