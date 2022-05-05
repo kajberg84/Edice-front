@@ -1,14 +1,14 @@
 // imports
-import { useContext } from 'react';
+import React from 'react';
 
 // context
 import { CartContext } from '../../../context/CartContext';
 
-// styles
-import styles from './addToCartButton.module.scss';
+// components
+import { OnClickButton } from '../buttons';
 
 export const AddToCartButton = (props) => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = React.useContext(CartContext);
 
   const { product } = props;
 
@@ -30,9 +30,11 @@ export const AddToCartButton = (props) => {
 
   return (
     <>
-      <button className={styles.card_button} onClick={() => addToCart(product)}>
-        Add to Cart
-      </button>
+      <OnClickButton
+        onClickHandler={() => addToCart(product)}
+        text="Add to Cart"
+        type="primary"
+      />
     </>
   );
 };

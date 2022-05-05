@@ -1,0 +1,89 @@
+@import './variabels.scss';
+
+.btn-base {
+  border: none;
+  outline: none;
+  padding: 12px 18px;
+  border-radius: 50px;
+  font-size: $p-small;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.5s;
+}
+
+.btn-primary {
+  @extend .btn-base;
+  background-color: $color-black;
+  color: $color-white;
+  border: 2px solid $color-black;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-black;
+    border: 2px solid $color-black;
+    transition: 0.5s;
+  }
+}
+
+// denna behöver kanske bättre styling, dock kanske vi inte kommer använda en secondary button
+.btn-secondary {
+  @extend .btn-base;
+  background-color: $color-grey;
+  color: $color-white;
+  border: 2px solid $color-grey;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-black;
+    border: 2px solid $color-grey;
+    transition: 0.5s;
+  }
+}
+
+.btn-ghost {
+  @extend .btn-base;
+  background-color: rgba(0, 0, 0, 0);
+  color: $color-black;
+  border: 2px solid $color-black;
+
+  &:hover {
+    background-color: $color-black;
+    color: $color-white;
+    border: 2px solid $color-black;
+    transition: 0.5s;
+  }
+}
+
+// Form button styles
+input[type='button'] {
+  cursor: pointer;
+  background-color: rgba(85, 85, 85, 0.918);
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+input[type='button']:hover {
+  background-color: rgb(49, 49, 49);
+}
+
+.formButton {
+  border: none;
+  width: 100%;
+  outline: none;
+  padding: 20px 20px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-top: 10px;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}
+
+.formButton:hover {
+  background-color: #fff;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}
