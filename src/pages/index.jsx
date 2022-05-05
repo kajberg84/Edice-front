@@ -31,13 +31,6 @@ export default function Home() {
           </p>
         </Hero>
         <ProductsWrapper />
-        <div>
-          <h1>A tag displayar flex</h1>
-          <a href="#">Banan</a>
-          <a href="#">Banan</a>
-          <a href="#">Banan</a>
-          <a href="#">Banan</a>
-        </div>
       </>
     </>
   );

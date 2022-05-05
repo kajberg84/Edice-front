@@ -1,28 +1,5 @@
 @import '../../../styles/variabels.scss';
 
-// .footer {
-//   &_container {
-//     background-color: #cbcbcb;
-//   }
-
-//   &_wrapper {
-//     max-width: 1200px;
-//     margin: 0 auto;
-//     display: flex;
-//     height: 300px;
-//     align-items: center;
-//     justify-content: space-between;
-//   }
-
-//   &_nav {
-//     display: flex;
-//   }
-
-//   &_nav_item {
-//     font-size: 1.8rem;
-//     margin-left: 20px;
-//   }
-// }
 .footer {
   &_container {
     background-color: #cbcbcb;
@@ -57,10 +34,4 @@
       display: flex;
     }
   }
-
-  // &_nav_item {
-  //   font-size: 1.8rem;
-  //   // margin-left: 20px;
-  //   margin-top: 40px;
-  // }
 }

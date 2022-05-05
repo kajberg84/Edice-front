@@ -35,11 +35,21 @@ input + input {
 }
 
 // Styling för active link och nav-item är skev som fan
-.activeLink {
-  text-decoration: underline;
-  font-size: 1.8rem;
-  margin-left: 20px;
+.link-base {
+  font-size: 2rem;
   transition: 0.5s;
+  margin: 10px 0;
+
+  @media (min-width: $breakpoint-l) {
+    margin-left: 20px;
+    margin-top: 0;
+    font-size: 1.8rem;
+  }
+}
+
+.activeLink {
+  @extend .link-base;
+  text-decoration: underline;
 
   &:hover {
     color: $color-grey;
@@ -49,9 +59,7 @@ input + input {
 }
 
 .nav_item {
-  font-size: 1.8rem;
-  margin-left: 20px;
-  transition: 0.5s;
+  @extend .link-base;
 
   &:hover {
     color: $color-grey;
@@ -65,7 +73,7 @@ input + input {
 }
 
 .smallText {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 // Active link styling slut

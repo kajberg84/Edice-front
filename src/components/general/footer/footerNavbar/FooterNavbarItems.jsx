@@ -8,7 +8,6 @@ export const FooterNavbarItems = ({ items }) => {
     return items.map((item) => {
       return (
         <>
-          {/* <p key={item.id}>{item.name}</p> */}
           <ActiveLink key={item.id} linkUrl={item.link} linkText={item.name} />
         </>
       );

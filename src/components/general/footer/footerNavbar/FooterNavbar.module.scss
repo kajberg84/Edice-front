@@ -31,7 +31,6 @@
   color: $color-black;
   border-radius: 50px;
   cursor: pointer;
-  margin-left: 20px;
   font-size: $p-normal;
   transition: 0.5s;
   font-family: 'Poppins', sans-serif;
@@ -40,5 +39,9 @@
     color: $color-grey;
     text-decoration: underline;
     transition: 0.5s;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    margin-left: 20px;
   }
 }
