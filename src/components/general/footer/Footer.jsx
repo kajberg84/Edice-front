@@ -2,16 +2,19 @@
 import Link from 'next/link';
 
 // components
-import { Navbar } from '../navbar/Navbar';
+import { FooterNavbar } from './footerNavbar/FooterNavbar';
 import { ActiveLink } from '../../../utils/ActiveLink';
+import { FooterExtraLinks } from './footerExtraLinks/FooterExtraLinks';
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
+import { FooterNavItems, FooterExtraLinksItems } from './FooterItems';
 
 // styles
 import styles from './Footer.module.scss';
 
 export const Footer = () => {
+  console.log("Footernav items:", FooterNavItems);
   return (
     <footer className={styles.footer_container}>
       <div className={styles.footer_wrapper}>
@@ -22,19 +25,8 @@ export const Footer = () => {
             </a>
           </Link>
         </div>
-        <Navbar navPosition="Bottom" isFooter="true" />
-        <nav className={styles.footer_nav}>
-          <ActiveLink
-            linkUrl={RoutingPath.Terms}
-            linkText="Terms and conditions"
-            small="true"
-          />
-          <ActiveLink
-            linkUrl={RoutingPath.Privacy}
-            linkText="Privacy"
-            small="true"
-          />
-        </nav>
+        <FooterNavbar navPosition="Bottom" navItems={FooterNavItems.guest} />
+        <FooterExtraLinks links={FooterExtraLinksItems} />
       </div>
     </footer>
   );

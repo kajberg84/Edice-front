@@ -1,0 +1,8 @@
+@import '../../../../styles/variabels.scss';
+
+.nav {
+  @media (min-width: $breakpoint-l) {
+    display: flex;
+    margin-top: 40px;
+  }
+}
