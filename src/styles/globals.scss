@@ -1,6 +1,6 @@
 /* Imports */
 
-@import './normalize.scss';
+// @import './normalize.scss';
 @import './variabels.scss';
 @import './fonts.scss';
 @import './buttons.scss';
@@ -34,8 +34,7 @@ input + input {
   margin-top: 10px;
 }
 
-
-
+// Styling för active link och nav-item är skev som fan
 .activeLink {
   text-decoration: underline;
   font-size: 1.8rem;
@@ -59,11 +58,17 @@ input + input {
     text-decoration: underline;
     transition: 0.5s;
   }
+
+  @media (max-width: $breakpoint-l) {
+    display: flex;
+  }
 }
 
 .smallText {
   font-size: 1.6rem;
 }
+
+// Active link styling slut
 
 .menu-icon {
   height: 40px;

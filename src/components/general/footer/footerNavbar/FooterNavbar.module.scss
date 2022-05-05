@@ -1,0 +1,44 @@
+@import '../../../../styles/variabels.scss';
+
+.nav {
+  // align-items: center;
+
+  &_items {
+    display: block;
+  }
+  @media (min-width: $breakpoint-l) {
+    display: flex;
+    align-items: center;
+  }
+
+  &_icon_wrapper {
+    display: flex;
+    cursor: pointer;
+  }
+}
+
+.cart_icon {
+  width: 30px;
+}
+
+.nav_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: $color-black;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: $p-normal;
+  transition: 0.5s;
+  font-family: 'Poppins', sans-serif;
+
+  &:hover {
+    color: $color-grey;
+    text-decoration: underline;
+    transition: 0.5s;
+  }
+}
