@@ -25,7 +25,7 @@ export const Header = () => {
   const { user } = useContext(UserContext);
 
   const [showModal, setShowModal] = React.useState(false);
-  const [userLevel, setUserLevel] = React.useState(3);
+  const [userLevel, setUserLevel] = React.useState(1);
   const [navItems, setNavItems] = React.useState(NavbarItems.guest);
 
   // lockScroll kan brytas ut till en custom hook

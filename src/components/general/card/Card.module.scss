@@ -1,10 +1,14 @@
-@import "../../../styles/variabels.scss";
+@import '../../../styles/variabels.scss';
 
 .card {
   &_wrapper {
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     flex: 1 0 21%;
+
+    &:hover {
+      box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    }
   }
 
   &_img_wrapper img {
@@ -12,6 +16,10 @@
     object-fit: cover;
     border-radius: 20px 20px 0 0;
     cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
   }
 
   &_content_wrapper {

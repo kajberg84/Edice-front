@@ -92,10 +92,8 @@ export const Navbar = (props) => {
 
   const handleNavbarStyling = () => {
     if (displayBlock === true) {
-      console.log(displayBlock + 'displayBlock');
       return styles.footer_nav;
     } else {
-      console.log(displayBlock + 'displayBlock');
       return styles.nav;
     }
   };
@@ -105,6 +103,7 @@ export const Navbar = (props) => {
       <nav className={handleNavbarStyling()}>
         <ActiveLink linkUrl={RoutingPath.Home} linkText="Shop" />
         <ActiveLink linkUrl={RoutingPath.Checkout} linkText="Checkout" />
+        <ActiveLink linkUrl={RoutingPath.Contact} linkText="Contact" />
 
         {user ? authNavbar() : unAuthNavbar()}
         <div className={styles.nav_icon_wrapper} onClick={showModal}>

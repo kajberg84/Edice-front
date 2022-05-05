@@ -1,5 +1,5 @@
 .modal_wrapper {
-  width: 300px;
+  width: 80%;
   border-radius: 20px;
   height: fit-content;
   padding: 1rem;
@@ -8,6 +8,22 @@
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border: 1px solid rgb(203, 203, 203);
+  margin: 0 auto;
+  right: 10px;
+  left: 10px;
+
+  @media (min-width: 600px) {
+    width: 50%;
+    left: 45%;
+  }
+  @media (min-width: 800px) {
+    width: 45%;
+    left: 50%;
+  }
+  @media (min-width: 1000px) {
+    width: 30%;
+    left: 65%;
+  }
 }
 
 .title_wrapper {
