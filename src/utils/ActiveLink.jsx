@@ -6,15 +6,11 @@ import { useRouter } from 'next/router';
 
 export const ActiveLink = ({ linkUrl, linkText, small }) => {
   const router = useRouter();
-  const [link, setLink] = React.useState('');
+  const [link, setLink] = React.useState(null);
 
   React.useEffect(() => {
-    if (linkUrl === '/') {
-      setLink(linkUrl);
-    } else {
-      setLink(`/${linkUrl}`);
-    }
-  }, [router, linkUrl]);
+    setLink(linkUrl);
+  }, [linkUrl]);
 
   return (
     <Link href={linkUrl}>
