@@ -1,5 +1,5 @@
 // imports
-import React, { useState } from 'react';
+import React from 'react';
 
 // components
 import { ProductModal } from '../productmodal/ProductModal';
@@ -9,7 +9,7 @@ import { AddToCartButton } from '../addToCartButton/AddToCartButton';
 import styles from './Card.module.scss';
 
 export const Card = ({ product }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = React.useState(false);
 
   // disable scrolling the page when modal is open
   const lockScroll = React.useCallback(() => {
@@ -32,8 +32,8 @@ export const Card = ({ product }) => {
 
   return (
     <>
-      <div className={styles.card_wrapper}>
-        <div onClick={handleModal} className={styles.card_img_wrapper}>
+      <div onClick={handleModal} className={styles.card_wrapper}>
+        <div className={styles.card_img_wrapper}>
           <img src={product.img} alt={product.title} />
         </div>
         <div className={styles.card_content_wrapper}>
@@ -41,7 +41,6 @@ export const Card = ({ product }) => {
           <p className={styles.card_description}>{product.description}</p>
           <p className={styles.card_material}>Material: {product.material}</p>
           <h3 className={styles.card_price}>{product.price} $</h3>
-          <AddToCartButton product={product} />
         </div>
       </div>
       {showModal && <ProductModal product={product} closeModal={closeModal} />}
