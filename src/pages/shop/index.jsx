@@ -2,6 +2,7 @@
 import { Seo } from '../../components/seo/Seo';
 import { Hero } from '../../components/general/hero/Hero';
 import { ProductsWrapper } from '../../components/general/productsWrapper/ProductsWrapper';
+import { ProductCategories } from '../../components/products/ProductCategories/ProductCategories';
 
 // helpers
 import { RoutingPath } from '../../helpers/RoutingPath';
@@ -20,7 +21,7 @@ export default function Shop() {
       />
 
       <>
-        <Hero title="Our dices">
+        <Hero title="Our categories">
           <p>
             All our dice sets contain one of each of these types of dice: d4,
             d6, d8, d10, d12, d20 and a d10 procentile dice.
@@ -30,7 +31,7 @@ export default function Shop() {
             Pathfinder, Call of Cthulhu, Coriolis and many more.
           </p>
         </Hero>
-        <ProductsWrapper />
+        <ProductCategories />
       </>
     </>
   );

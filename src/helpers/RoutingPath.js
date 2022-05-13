@@ -1,5 +1,3 @@
-import DiceBagCategory from '../pages/shop/dicebag';
-
 export const RoutingPath = {
   Home: '/',
   Shop: '/shop',
