@@ -1,0 +1,44 @@
+@import '../../../styles/variabels.scss';
+
+.card {
+  &_wrapper {
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    flex: 1 0 21%;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+    }
+  }
+
+  &_img_wrapper img {
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &_content_wrapper {
+    padding: 20px 10px;
+  }
+
+  &_title {
+    font-size: $title-4;
+  }
+
+  &_description {
+    font-size: $p-normal;
+  }
+
+  &_material {
+    font-size: $p-xsmall;
+  }
+
+  &_price {
+    font-size: $p-large;
+  }
+}
