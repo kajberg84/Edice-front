@@ -1,3 +1,5 @@
+import DiceBagCategory from '../pages/shop/dicebag';
+
 export const RoutingPath = {
   Home: '/',
   Shop: '/shop',
@@ -9,4 +11,7 @@ export const RoutingPath = {
   Terms: '/terms',
   Privacy: '/privacy',
   Contact: '/contact',
+  DiceCategory: 'shop/dice',
+  DiceBagCategory: 'shop/dicebag',
+  DicesetCategory: 'shop/diceset',
 };
