@@ -1,3 +1,6 @@
+// imports
+import * as React from 'react';
+
 // components
 import { Seo } from '../../../components/seo/Seo';
 import { Hero } from '../../../components/general/hero/Hero';
@@ -10,7 +13,8 @@ import { RoutingPath } from '../../../helpers/RoutingPath';
 import style from '../../../styles/pages/Shop.module.scss';
 
 export default function Shop({ productData }) {
-  console.log('Products logg' + productData);
+  console.log(productData);
+
   return (
     <>
       <Seo
@@ -21,7 +25,7 @@ export default function Shop({ productData }) {
       />
 
       <>
-        <Hero title="Product page">
+        <Hero title={productData[0].title}>
           <p>
             All our dice sets contain one of each of these types of dice: d4,
             d6, d8, d10, d12, d20 and a d10 procentile dice.
@@ -53,10 +57,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  // Fetcha produkter från servern
-  // skapa funktionalitet så att jag kan fetcha på en slug
+  // skapa funktionalitet i backend att kunna fetcha på en produkts slug
   const res = await fetch(
-    `https://mattis-test.herokuapp.com/resource/${context.params.slug}`
+    `https://mattis-test.herokuapp.com/resource/?slug=${context.params.slug}`
   );
   const data = await res.json();
 
