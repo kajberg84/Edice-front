@@ -8,8 +8,11 @@ import { RoutingPath } from '../../../helpers/RoutingPath';
 
 // style
 import style from '../../../styles/pages/Shop.module.scss';
+import { ProductCategory } from '../../../components/products/ProductCategory';
 
-export default function Shop() {
+export default function DiceCategory({ categoryProducts }) {
+  console.log(categoryProducts);
+
   return (
     <>
       <Seo
@@ -20,18 +23,27 @@ export default function Shop() {
       />
 
       <>
-        <Hero title="Our dices">
-          <p>
-            All our dice sets contain one of each of these types of dice: d4,
-            d6, d8, d10, d12, d20 and a d10 procentile dice.
-          </p>
-          <p>
-            You can use them for roleplaying games like Dungeons and Dragons,
-            Pathfinder, Call of Cthulhu, Coriolis and many more.
-          </p>
-        </Hero>
-        <ProductsWrapper />
+        <ProductCategory title="Dices" productsData={categoryProducts} />
       </>
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('https://mattis-test.herokuapp.com/resource/getall');
+  const products = await res.json();
+
+  const categoryProducts = products.filter((product) => {
+    return product.category === 'dice';
+  });
+
+  // By returning { props: { posts } }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      categoryProducts,
+    },
+  };
 }
