@@ -1,4 +1,5 @@
 // imports
+import * as React from 'react';
 
 // components
 import { Seo } from '../../../components/seo/Seo';
@@ -12,6 +13,20 @@ import style from '../../../styles/pages/Shop.module.scss';
 
 export default function DiceCategory({ categoryProducts }) {
   console.log(categoryProducts);
+  console.log(categoryProducts[0].slug);
+
+  React.useEffect(() => {
+    // Fetcha produkter från servern
+    const getProduct = async () => {
+      const res = await fetch(
+        `https://mattis-test.herokuapp.com/resource/627e84d7b1a54c00161e7ac2`
+      );
+      const product = await res.json();
+
+      console.log(product);
+    };
+    getProduct();
+  }, []);
 
   return (
     <>
