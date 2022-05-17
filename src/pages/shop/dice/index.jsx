@@ -7,6 +7,8 @@ import { ProductCategory } from '../../../components/products/ProductCategory';
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
+import { getData } from '../../../helpers/FetchHelper';
+import { filterProductsOnCategory } from '../../../helpers/FilterHelper';
 
 // style
 import style from '../../../styles/pages/Shop.module.scss';
@@ -34,9 +36,7 @@ export async function getStaticProps() {
   const products = await res.json();
 
   // Filtrera produkter efter kategori
-  const categoryProducts = products.filter((product) => {
-    return product.category === 'dice';
-  });
+  const categoryProducts = filterProductsOnCategory(products, 'dice');
 
   return {
     props: {
