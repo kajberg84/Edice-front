@@ -7,6 +7,7 @@ import { ProductPage } from '../../../components/products/ProductPage/ProductPag
 
 // helpers
 import { RoutingPath } from '../../../helpers/RoutingPath';
+import { filterProductsOnCategory } from '../../../helpers/FilterHelper';
 
 export default function DiceProductPage({ productData }) {
   console.log(productData);
@@ -34,9 +35,7 @@ export async function getStaticPaths() {
   const products = await res.json();
 
   // Filtrera produkter efter kategori
-  const categoryProducts = products.filter((product) => {
-    return product.category === 'dicebag';
-  });
+  const categoryProducts = filterProductsOnCategory(products, 'dicebag');
 
   const paths = categoryProducts.map((product) => {
     return { params: { slug: product.slug } };
