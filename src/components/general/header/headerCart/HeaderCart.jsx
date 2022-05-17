@@ -1,25 +1,25 @@
-import React from 'react';
+import * as React from "react";
 
 // imports
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 
 // context
-import { CartContext } from '../../../../context/CartContext';
+import { CartContext } from "../../../../context/CartContext";
 
 // components
-import { Modal } from '../../../../utils/modal/Modal';
-import { Cart } from '../../cart/Cart';
-import { OnClickButton } from '../../buttons';
+import { Modal } from "../../../../utils/modal/Modal";
+import { Cart } from "../../cart/Cart";
+import { OnClickButton } from "../../buttons";
 
 // helpers
-import { RoutingPath } from '../../../../helpers/RoutingPath';
+import { RoutingPath } from "../../../../helpers/RoutingPath";
 
 // Styles
-import styles from './HeaderCart.module.scss';
+import styles from "./HeaderCart.module.scss";
 
 export const HeaderCart = ({ navPosition }) => {
   const { cart } = React.useContext(CartContext);
-  const [navPositionClicked, setNavPositionClicked] = React.useState('');
+  const [navPositionClicked, setNavPositionClicked] = React.useState("");
   const [modalVisible, setModalvisible] = React.useState(false);
 
   const router = useRouter();
@@ -68,7 +68,7 @@ export const HeaderCart = ({ navPosition }) => {
           (
           {itemsInCart.length > 0
             ? itemsInCart.reduce((total, price) => total + price)
-            : '0'}
+            : "0"}
           )
         </p>
       </div>

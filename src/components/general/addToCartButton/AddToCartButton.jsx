@@ -1,11 +1,11 @@
 // imports
-import React from 'react';
+import * as React from "react";
 
 // context
-import { CartContext } from '../../../context/CartContext';
+import { CartContext } from "../../../context/CartContext";
 
 // components
-import { OnClickButton } from '../buttons';
+import { OnClickButton } from "../buttons";
 
 export const AddToCartButton = (props) => {
   const { cart, setCart } = React.useContext(CartContext);

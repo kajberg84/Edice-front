@@ -1,7 +1,7 @@
 // imports
-import React from 'react';
+import * as React from "react";
 
-import { ActiveLink } from '../../../../utils/ActiveLink';
+import { ActiveLink } from "../../../../utils/ActiveLink";
 
 export const FooterNavbarItems = ({ items }) => {
   const renderFooterNavigation = () => {

@@ -1,11 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
+import * as React from "react";
+import Link from "next/link";
 
 // imports
-import { ActiveLink } from '../../../../utils/ActiveLink';
+import { ActiveLink } from "../../../../utils/ActiveLink";
 
 // styles
-import styles from './FooterExtraLinks.module.scss';
+import styles from "./FooterExtraLinks.module.scss";
 
 export const FooterExtraLinks = ({ links }) => {
   return (
