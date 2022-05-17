@@ -1,24 +1,24 @@
 // imports
-import React from 'react';
-import { useRouter } from 'next/router';
+import * as React from "react";
+import { useRouter } from "next/router";
 
 // context
-import { UserContext } from '../../../../context/UserContext';
-import { CartContext } from '../../../../context/CartContext';
+import { UserContext } from "../../../../context/UserContext";
+import { CartContext } from "../../../../context/CartContext";
 
 // components
-import { Modal } from '../../../../utils/modal/Modal';
-import { Cart } from '../../cart/Cart';
-import { ActiveLink } from '../../../../utils/ActiveLink';
-import { OnClickButton } from '../../buttons';
-import { FooterExtraLinksItems } from '../FooterItems';
+import { Modal } from "../../../../utils/modal/Modal";
+import { Cart } from "../../cart/Cart";
+import { ActiveLink } from "../../../../utils/ActiveLink";
+import { OnClickButton } from "../../buttons";
+import { FooterExtraLinksItems } from "../FooterItems";
 
 // helpers
-import { RoutingPath } from '../../../../helpers/RoutingPath';
+import { RoutingPath } from "../../../../helpers/RoutingPath";
 
 // Styles
-import styles from './FooterNavbar.module.scss';
-import { FooterNavbarItems } from './FooterNavbarItems';
+import styles from "./FooterNavbar.module.scss";
+import { FooterNavbarItems } from "./FooterNavbarItems";
 
 export const FooterNavbar = ({ navPosition, navItems }) => {
   const router = useRouter();
@@ -28,7 +28,7 @@ export const FooterNavbar = ({ navPosition, navItems }) => {
   const { cart } = React.useContext(CartContext);
 
   // State
-  const [navPositionClicked, setNavPositionClicked] = React.useState('');
+  const [navPositionClicked, setNavPositionClicked] = React.useState("");
   const [modalVisible, setModalvisible] = React.useState(false);
   const [itemsInCart, setItemsInCart] = React.useState(
     cart.map((item) => item.quantity)
@@ -87,7 +87,7 @@ export const FooterNavbar = ({ navPosition, navItems }) => {
             (
             {itemsInCart.length > 0
               ? itemsInCart.reduce((total, price) => total + price)
-              : '0'}
+              : "0"}
             )
           </p>
         </div>

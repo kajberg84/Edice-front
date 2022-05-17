@@ -1,23 +1,23 @@
 // imports
-import React from 'react';
+import * as React from "react";
 
 // components
-import { ProductModal } from '../productmodal/ProductModal';
-import { AddToCartButton } from '../addToCartButton/AddToCartButton';
+import { ProductModal } from "../productmodal/ProductModal";
+import { AddToCartButton } from "../addToCartButton/AddToCartButton";
 
 // styles
-import styles from './Card.module.scss';
+import styles from "./Card.module.scss";
 
 export const Card = ({ product }) => {
   const [showModal, setShowModal] = React.useState(false);
 
   // disable scrolling the page when modal is open
   const lockScroll = React.useCallback(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }, []);
 
   const unlockScroll = React.useCallback(() => {
-    document.body.style.overflow = '';
+    document.body.style.overflow = "";
   }, []);
 
   const handleModal = () => {

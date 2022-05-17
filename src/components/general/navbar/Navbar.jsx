@@ -1,38 +1,38 @@
 // imports
-import { useContext, useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import * as React from "react";
+import { useRouter } from "next/router";
 
 // context
-import { UserContext } from '../../../context/UserContext';
-import { CartContext } from '../../../context/CartContext';
+import { UserContext } from "../../../context/UserContext";
+import { CartContext } from "../../../context/CartContext";
 
 // components
-import { Modal } from '../../../utils/modal/Modal';
-import { removeLocalStorage } from '../../../utils/localStorageHandler';
-import { Cart } from '../cart/Cart';
-import { ActiveLink } from '../../../utils/ActiveLink';
-import { OnClickButton } from '../buttons';
+import { Modal } from "../../../utils/modal/Modal";
+import { removeLocalStorage } from "../../../utils/localStorageHandler";
+import { Cart } from "../cart/Cart";
+import { ActiveLink } from "../../../utils/ActiveLink";
+import { OnClickButton } from "../buttons";
 
 // helpers
-import { RoutingPath } from '../../../helpers/RoutingPath';
+import { RoutingPath } from "../../../helpers/RoutingPath";
 
 // Styles
-import styles from './Navbar.module.scss';
+import styles from "./Navbar.module.scss";
 
 export const Navbar = (props) => {
   const { navPosition, isFooter } = props;
 
-  const [navPositionClicked, setNavPositionClicked] = useState('');
-  const { user, setUser } = useContext(UserContext);
+  const [navPositionClicked, setNavPositionClicked] = React.useState("");
+  const { user, setUser } = React.useContext(UserContext);
 
-  const [modalVisible, setModalvisible] = useState(false);
-  const [displayBlock, setDisplayBlock] = useState(false);
+  const [modalVisible, setModalvisible] = React.useState(false);
+  const [displayBlock, setDisplayBlock] = React.useState(false);
 
-  const { cart } = useContext(CartContext);
+  const { cart } = React.useContext(CartContext);
 
   const router = useRouter();
 
-  const [itemsInCart, setItemsInCart] = useState(
+  const [itemsInCart, setItemsInCart] = React.useState(
     cart.map((item) => item.quantity)
   );
 
@@ -40,19 +40,19 @@ export const Navbar = (props) => {
     setItemsInCart(cart.map((item) => item.quantity));
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     updateItemsInCart();
   }, [cart]);
 
-  useEffect(() => {
-    if (isFooter === 'true') {
+  React.useEffect(() => {
+    if (isFooter === "true") {
       setDisplayBlock(true);
     }
   }, [isFooter]);
 
   // Logout function
   const handleLogout = () => {
-    removeLocalStorage('edice-user');
+    removeLocalStorage("edice-user");
     setUser(null);
     router.push(RoutingPath.Login);
   };
@@ -127,7 +127,7 @@ export const Navbar = (props) => {
             (
             {itemsInCart.length > 0
               ? itemsInCart.reduce((total, price) => total + price)
-              : '0'}
+              : "0"}
             )
           </p>
         </div>

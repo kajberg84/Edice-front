@@ -1,8 +1,8 @@
 // imports
-import React from 'react';
+import * as React from "react";
 
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 export const ActiveLink = ({ linkUrl, linkText, small }) => {
   const router = useRouter();
@@ -15,8 +15,8 @@ export const ActiveLink = ({ linkUrl, linkText, small }) => {
   return (
     <Link href={linkUrl}>
       <a
-        className={`${router.pathname == link ? 'activeLink' : 'nav_item'} ${
-          small === 'true' ? 'smallText' : ''
+        className={`${router.pathname == link ? "activeLink" : "nav_item"} ${
+          small === "true" ? "smallText" : ""
         }`}
       >
         {linkText}

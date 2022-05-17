@@ -1,22 +1,22 @@
 // Imports
-import React from 'react';
-import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import React from "react";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 // context
-import { UserContext } from '../context/UserContext';
+import { UserContext } from "../context/UserContext";
 
 // components
-import { Seo } from '../components/seo/Seo';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
+import { Seo } from "../components/seo/Seo";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
 
 // helpers
-import { RoutingPath } from '../helpers/RoutingPath';
+import { RoutingPath } from "../helpers/RoutingPath";
 
 // styles
-import styles from '../styles/pages/Contact.module.scss';
+import styles from "../styles/pages/Contact.module.scss";
 
 // Schema for formvalidating
 const loginSchema = yup
@@ -31,7 +31,7 @@ export default function Contact() {
   const router = useRouter();
 
   // states
-  const [sendValue, setSendValue] = React.useState('Send Message');
+  const [sendValue, setSendValue] = React.useState("Send Message");
   const [formSubmitted, setFormSubmitted] = React.useState(false);
 
   const {
@@ -40,19 +40,23 @@ export default function Contact() {
     reset,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: "onBlur",
     resolver: yupResolver(loginSchema),
   });
 
   async function onSubmitForm(values) {
     try {
-      setSendValue('Sending...');
+      setSendValue("Sending...");
 
       // emulate sending data to server
       setTimeout(() => {
         reset();
         setFormSubmitted(true);
       }, 300);
+      setTimeout(() => {
+        setSendValue("Send Message");
+        setFormSubmitted(false);
+      }, 4000);
 
       console.log(values);
     } catch (error) {
@@ -82,7 +86,7 @@ export default function Contact() {
                     className={styles.contact_form}
                   >
                     <input
-                      {...register('name')}
+                      {...register("name")}
                       placeholder="Type in your name"
                       type="name"
                     />
@@ -90,14 +94,14 @@ export default function Contact() {
                       {errors.name?.message}
                     </p>
                     <input
-                      {...register('email')}
+                      {...register("email")}
                       placeholder="Type in your email"
                     />
                     <p className={styles.contact_error}>
                       {errors.email?.message}
                     </p>
                     <textarea
-                      {...register('message')}
+                      {...register("message")}
                       placeholder="Type in your message"
                     />
                     <p className={styles.contact_error}>
@@ -116,6 +120,10 @@ export default function Contact() {
                 <div className={styles.contact_form_submitted_reply}>
                   <h1>Thank you for your message!</h1>
                   <p>We will reply to you within three days.</p>
+
+                  <p>
+                    You will be redirected to the contact page in a few seconds.
+                  </p>
                 </div>
               )}
             </div>

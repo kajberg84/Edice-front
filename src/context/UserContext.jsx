@@ -1,12 +1,12 @@
-import { createContext, useState, useEffect } from "react";
+import * as React from "react";
 
-export const UserContext = createContext(null);
+export const UserContext = React.createContext(null);
 
 const UserProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = React.useState(null);
 
   // Usertoken state. undefined if not in localstorage
-  const [userToken, setUserToken] = useState(() => {
+  const [userToken, setUserToken] = React.useState(() => {
     if (typeof window !== "undefined") {
       if (window.localStorage.getItem("edice-user")) {
         const response = window.localStorage.getItem("edice-user");
@@ -26,7 +26,7 @@ const UserProvider = ({ children }) => {
   }
 
   // Updating usertoken if changed/refreshed
-  useEffect(() => {
+  React.useEffect(() => {
     setUserTokenLocalStorage(userToken);
   }, [userToken]);
 

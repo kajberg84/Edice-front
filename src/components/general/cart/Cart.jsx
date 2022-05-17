@@ -1,15 +1,14 @@
 // imports
-import { useContext } from 'react';
+import * as React from "react";
 
 // context
-import { CartContext } from '../../../context/CartContext';
+import { CartContext } from "../../../context/CartContext";
 
 // styles
-import style from './Cart.module.scss';
-
+import style from "./Cart.module.scss";
 
 export const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart } = React.useContext(CartContext);
 
   //Funktionalitet för att öka eller minska antalet producter i varukorgen.
   const incrementQuantity = (product) => {
@@ -67,7 +66,7 @@ export const Cart = () => {
             </div>
 
             <p className={style.cart_price}>
-              {' '}
+              {" "}
               {product.price * product.quantity} $
             </p>
           </li>
@@ -77,7 +76,7 @@ export const Cart = () => {
           <p className={style.total}>
             {allPrices.length > 0
               ? allPrices.reduce((total, price) => total + price)
-              : '0'}{' '}
+              : "0"}{" "}
             $
           </p>
         </div>
