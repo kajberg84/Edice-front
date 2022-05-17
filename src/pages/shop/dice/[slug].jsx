@@ -9,8 +9,6 @@ import { ProductPage } from '../../../components/products/ProductPage/ProductPag
 import { RoutingPath } from '../../../helpers/RoutingPath';
 
 export default function DiceProductPage({ productData }) {
-  console.log(productData);
-
   const product = productData[0];
 
   return (
