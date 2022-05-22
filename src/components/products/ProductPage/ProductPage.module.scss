@@ -1,14 +1,55 @@
 .content {
   padding: 0 20px;
   margin: 20px 0;
-  @media (min-width: 700px) {
+  display: flex;
+  justify-content: center;
+
+  &_img_wrapper {
+    width: 40%;
+    margin-right: 20px;
+  }
+
+  img {
+    border-radius: 20px;
+  }
+
+  p,
+  h3 {
+    margin-left: 20px;
+  }
+
+  &_wrapper {
     display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
+    flex-direction: column;
+
+    button {
+      margin-bottom: 6px;
+      max-width: 14rem;
+    }
+  }
+  .material {
+    margin-top: auto;
+  }
+  .price {
+    font-size: 3rem;
+    font-weight: bold;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    p,
+    h3 {
+      margin-left: 0px;
+    }
 
     &_img_wrapper {
-      width: 40%;
-      margin-right: 20px;
+      width: 70%;
+
+      @media (max-width: 400px) {
+        width: 100%;
+      }
     }
   }
 }

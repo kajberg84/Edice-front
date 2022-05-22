@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
 // components
-import { AddToCartButton } from '../../general/addToCartButton/AddToCartButton';
+import { AddToCartButton } from "../../general/addToCartButton/AddToCartButton";
 
-import styles from './ProductPage.module.scss';
+import styles from "./ProductPage.module.scss";
 
 export const ProductPage = ({ product }) => {
   console.log(product);
