@@ -2,15 +2,15 @@
 // imports
 
 // components
-import { Hero } from '../components/general/hero/Hero';
-import { Seo } from '../components/seo/Seo';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
+import { Hero } from "../components/general/hero/Hero";
+import { Seo } from "../components/seo/Seo";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
 
 // helpers
-import { RoutingPath } from '../helpers/RoutingPath';
+import { RoutingPath } from "../helpers/RoutingPath";
 
 //styles
-import styles from '../styles/pages/Privacy.module.scss';
+import styles from "../styles/pages/Privacy.module.scss";
 
 const Privacy = () => {
   return (
@@ -45,7 +45,7 @@ const Privacy = () => {
                 The Personal Information that we collect are used for providing
                 and improving the Service. We will not use or share your
                 information with anyone except as described in this Privacy
-                Policy. Our Privacy Policy was created with the help of the{' '}
+                Policy. Our Privacy Policy was created with the help of the{" "}
                 <a href="https://www.privacypolicytemplate.net">
                   Privacy Policy Template Generator
                 </a>
@@ -97,7 +97,7 @@ const Privacy = () => {
               </p>
 
               <p>
-                For more general information on cookies, please read{' '}
+                For more general information on cookies, please read{" "}
                 <a href="https://www.generateprivacypolicy.com/#cookies">
                   "Cookies" article from the Privacy Policy Generator
                 </a>
