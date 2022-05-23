@@ -1,9 +1,9 @@
 /* Imports */
 
 // @import './normalize.scss';
-@import './variabels.scss';
-@import './fonts.scss';
-@import './buttons.scss';
+@import "./variabels.scss";
+@import "./fonts.scss";
+@import "./buttons.scss";
 
 /* Base styling */
 
@@ -38,7 +38,6 @@ input + input {
 .link-base {
   font-size: 2rem;
   transition: 0.5s;
-  margin: 10px 0;
 
   @media (min-width: $breakpoint-l) {
     margin-left: 20px;
