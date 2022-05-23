@@ -4,11 +4,14 @@
   display: flex;
   align-items: center;
 
-  h1 {
+  h1,
+  p {
     margin-bottom: 40px;
   }
+
   .notfound_img_wrapper {
     width: 40%;
+    margin-right: 5rem;
   }
   .notfound_button {
     border: none;
