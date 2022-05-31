@@ -1,13 +1,17 @@
+import Link from "next/link";
+
 // components
-import { Seo } from '../components/seo/Seo';
-import { Hero } from '../components/general/hero/Hero';
-import { ProductsWrapper } from '../components/general/productsWrapper/ProductsWrapper';
+import { Seo } from "../components/seo/Seo";
+import { Hero } from "../components/general/hero/Hero";
+import { ProductCategoryCard } from "../components/products/ProductCategories/ProductCategoryCard/ProductCategoryCard";
+import { NavBtn } from "../components/general/buttons/NavButtons";
 
 // helpers
-import { RoutingPath } from '../helpers/RoutingPath';
+import { ProductCategoryItems } from "../components/products/ProductCategories/ProductCategoryItems";
+import { RoutingPath } from "../helpers/RoutingPath";
 
 // style
-import style from '../styles/pages/Home.module.scss';
+import styles from "../styles/pages/Home.module.scss";
 
 export default function Home() {
   return (
@@ -20,17 +24,32 @@ export default function Home() {
       />
 
       <>
-        <Hero title="A store of dices">
-          <p>
-            All our dice sets contain one of each of these types of dice: d4,
-            d6, d8, d10, d12, d20 and a d10 procentile dice.
-          </p>
-          <p>
-            You can use them for roleplaying games like Dungeons and Dragons,
-            Pathfinder, Call of Cthulhu, Coriolis and many more.
-          </p>
+        <Hero title="Welcome to Edice">
+          <p>A store with love for roleplaying games.</p>
         </Hero>
-        <ProductsWrapper />
+
+        <div className={`${styles.home_wrapper} ${styles.home_wrapper_shop}`}>
+          <div className={styles.home_wrapper_content}>
+            <Link href={RoutingPath.Shop}>
+              <a>
+                <h2>Visit our Shop</h2>
+              </a>
+            </Link>
+            <div className={styles.wrapper}>
+              {ProductCategoryItems.map((category) => (
+                <ProductCategoryCard key={category.id} category={category} />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.home_wrapper}>
+          <div className={styles.home_wrapper_content}>
+            <h2>Join the Edice family</h2>
+            <p>Make checkout easier, sign up and create an account!</p>
+            <NavBtn link={RoutingPath.Register} btnText={"Register now"} />
+          </div>
+        </div>
       </>
     </>
   );

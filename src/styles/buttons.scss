@@ -1,4 +1,4 @@
-@import './variabels.scss';
+@import "./variabels.scss";
 
 .btn-base {
   border: none;
@@ -7,7 +7,7 @@
   border-radius: 50px;
   font-size: $p-small;
   cursor: pointer;
-  margin-top: 10px;
+  margin: 20px 0px;
   transition: 0.5s;
 }
 
@@ -55,14 +55,14 @@
 }
 
 // Form button styles
-input[type='button'] {
+input[type="button"] {
   cursor: pointer;
   background-color: rgba(85, 85, 85, 0.918);
   color: #fff;
   font-size: 1.8rem;
 }
 
-input[type='button']:hover {
+input[type="button"]:hover {
   background-color: rgb(49, 49, 49);
 }
 
