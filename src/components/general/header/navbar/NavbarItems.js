@@ -33,22 +33,4 @@ export const NavbarItems = {
       link: RoutingPath.Account,
     },
   ],
-  /*admin: [
-    {
-      name: 'Products',
-      link: RoutingPath.Shop,
-    },
-    {
-      name: 'Users',
-      link: RoutingPath.Checkout,
-    },
-    {
-      name: 'Account',
-      link: RoutingPath.Account,
-    },
-    {
-      name: 'Sign Out',
-      link: RoutingPath.Account,
-    },
-  ],*/
 };

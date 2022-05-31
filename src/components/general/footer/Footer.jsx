@@ -1,20 +1,31 @@
 // imports
-import Link from 'next/link';
+import * as React from "react";
+import Link from "next/link";
 
 // components
-import { FooterNavbar } from './footerNavbar/FooterNavbar';
-import { ActiveLink } from '../../../utils/ActiveLink';
-import { FooterExtraLinks } from './footerExtraLinks/FooterExtraLinks';
+import { FooterNavbar } from "./footerNavbar/FooterNavbar";
+import { ActiveLink } from "../../../utils/ActiveLink";
+import { FooterExtraLinks } from "./footerExtraLinks/FooterExtraLinks";
+
+//context
+import { UserContext } from "../../../context/UserContext";
 
 // helpers
-import { RoutingPath } from '../../../helpers/RoutingPath';
-import { FooterNavItems, FooterExtraLinksItems } from './FooterItems';
+import { RoutingPath } from "../../../helpers/RoutingPath";
+import { FooterNavItems, FooterExtraLinksItems } from "./FooterItems";
 
 // styles
-import styles from './Footer.module.scss';
+import styles from "./Footer.module.scss";
 
 export const Footer = () => {
   console.log("Footernav items:", FooterNavItems);
+  const { user, setUser } = React.useContext(UserContext);
+  let navbarItems;
+  if (user) {
+    navbarItems = FooterNavItems.user;
+  } else {
+    navbarItems = FooterNavItems.guest;
+  }
   return (
     <footer className={styles.footer_container}>
       <div className={styles.footer_wrapper}>
@@ -25,7 +36,7 @@ export const Footer = () => {
             </a>
           </Link>
         </div>
-        <FooterNavbar navPosition="Bottom" navItems={FooterNavItems.guest} />
+        <FooterNavbar navPosition="Bottom" navItems={navbarItems} />
         <FooterExtraLinks links={FooterExtraLinksItems} />
       </div>
     </footer>

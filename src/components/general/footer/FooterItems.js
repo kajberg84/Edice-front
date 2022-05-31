@@ -1,57 +1,35 @@
-import { RoutingPath } from '../../../helpers/RoutingPath';
+import { RoutingPath } from "../../../helpers/RoutingPath";
 
 const FooterNavItems = {
   guest: [
     {
-      name: 'Shop',
+      name: "Shop",
       link: RoutingPath.Shop,
     },
     {
-      name: 'Checkout',
+      name: "Checkout",
       link: RoutingPath.Checkout,
     },
     {
-      name: 'Login',
+      name: "Login",
       link: RoutingPath.Login,
     },
     {
-      name: 'Register',
+      name: "Register",
       link: RoutingPath.Register,
     },
   ],
   user: [
     {
-      name: 'Shop',
+      name: "Shop",
       link: RoutingPath.Shop,
     },
     {
-      name: 'Checkout',
+      name: "Checkout",
       link: RoutingPath.Checkout,
     },
     {
-      name: 'Account',
-      link: RoutingPath.Account,
-    },
-    {
-      name: 'Contact',
-      link: RoutingPath.Contact,
-    },
-  ],
-  admin: [
-    {
-      name: 'Products',
-      link: RoutingPath.Shop,
-    },
-    {
-      name: 'Users',
-      link: RoutingPath.Checkout,
-    },
-    {
-      name: 'Account',
-      link: RoutingPath.Account,
-    },
-    {
-      name: 'Sign Out',
+      name: "Account",
       link: RoutingPath.Account,
     },
   ],
@@ -59,12 +37,12 @@ const FooterNavItems = {
 
 const FooterExtraLinksItems = [
   {
-    title: 'Terms and conditions',
+    title: "Terms and conditions",
     link: RoutingPath.Terms,
     id: 1,
   },
   {
-    title: 'Privacy',
+    title: "Privacy",
     link: RoutingPath.Privacy,
     id: 2,
   },

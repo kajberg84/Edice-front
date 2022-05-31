@@ -16,10 +16,10 @@ import { NavbarItems } from "./NavbarItems";
 // Styles
 import styles from "./HeaderNavbar.module.scss";
 
-export const HeaderNavbar = ({ navbarItems }) => {
+export const HeaderNavbar = ({}) => {
   const router = useRouter();
   const { user, setUser } = React.useContext(UserContext);
-
+  let navbarItems;
   if (user) {
     navbarItems = NavbarItems.user;
   } else {
