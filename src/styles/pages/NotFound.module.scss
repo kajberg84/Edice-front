@@ -12,6 +12,7 @@
   .notfound_img_wrapper {
     width: 40%;
     margin-right: 5rem;
+    animation: spin 1.5s linear;
   }
   .notfound_button {
     border: none;
@@ -22,5 +23,14 @@
     border-radius: 50px;
     font-size: 1.6rem;
     cursor: pointer;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
