@@ -1,43 +1,39 @@
-import { RoutingPath } from '../../../../helpers/RoutingPath';
+import { RoutingPath } from "../../../../helpers/RoutingPath";
 
 export const NavbarItems = {
   guest: [
     {
-      name: 'Shop',
+      name: "Shop",
       link: RoutingPath.Shop,
     },
     {
-      name: 'Checkout',
+      name: "Checkout",
       link: RoutingPath.Checkout,
     },
     {
-      name: 'Login',
+      name: "Login",
       link: RoutingPath.Login,
     },
     {
-      name: 'Register',
+      name: "Register",
       link: RoutingPath.Register,
     },
   ],
   user: [
     {
-      name: 'Shop',
+      name: "Shop",
       link: RoutingPath.Shop,
     },
     {
-      name: 'Checkout',
+      name: "Checkout",
       link: RoutingPath.Checkout,
     },
     {
-      name: 'Account',
-      link: RoutingPath.Account,
-    },
-    {
-      name: 'Sign Out',
+      name: "Account",
       link: RoutingPath.Account,
     },
   ],
-  admin: [
+  /*admin: [
     {
       name: 'Products',
       link: RoutingPath.Shop,
@@ -54,5 +50,5 @@ export const NavbarItems = {
       name: 'Sign Out',
       link: RoutingPath.Account,
     },
-  ],
+  ],*/
 };
