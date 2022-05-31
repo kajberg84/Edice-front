@@ -1,10 +1,12 @@
-@import '../../../../styles/variabels.scss';
+@import "../../../../styles/variabels.scss";
 
 .card {
   &_wrapper {
+    background-color: $color-off-white;
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     flex: 1 0 21%;
+    min-height: 100%;
     cursor: pointer;
 
     &:hover {

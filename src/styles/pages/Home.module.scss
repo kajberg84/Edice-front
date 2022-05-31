@@ -1,0 +1,38 @@
+@import "../../styles/variabels.scss";
+.home {
+  &_wrapper {
+    margin: 20px 0px;
+    padding: 20px;
+
+    &_content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    &_shop {
+      background-color: $color-mid-grey;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.wrapper {
+  display: grid;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  padding: 0 $sidespacing-mobile;
+
+  @media (min-width: $breakpoint-s) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding: 0;
+  }
+}
