@@ -8,6 +8,7 @@ import * as yup from 'yup';
 import { Seo } from '../components/seo/Seo';
 import { Hero } from '../components/general/hero/Hero';
 import { Wrapper } from '../components/layout/wrapper/Wrapper';
+import { UnAuthWrapper } from '../components/layout/wrapper/UnAuthWrapper';
 
 // helpers
 import { RoutingPath } from '../helpers/RoutingPath';
@@ -72,69 +73,71 @@ export default function Register() {
         pageUrl={RoutingPath.home}
       />
 
-      <div className={styles.register_container}>
-        <Hero title="Sign Up to E-dice" />
+      <UnAuthWrapper>
+        <div className={styles.register_container}>
+          <Hero title="Sign Up to E-dice" />
 
-        <Wrapper>
-          <div className={styles.register_wrapper}>
-            <form
-              className={styles.register_form}
-              onSubmit={handleSubmit(onSubmit)}
-            >
-              <h3>Type in your information to register an account</h3>
+          <Wrapper>
+            <div className={styles.register_wrapper}>
+              <form
+                className={styles.register_form}
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                <h3>Type in your information to register an account</h3>
 
-              <input
-                {...register('firstName')}
-                placeholder="Type in your first name"
-              />
-              <p>{errors.firstName?.message}</p>
-              <input
-                {...register('lastName')}
-                placeholder="Type in your last name"
-              />
-              <p>{errors.lastName?.message}</p>
-              <input
-                {...register('adress')}
-                placeholder="Type in your address"
-              />
-              <p>{errors.adress?.message}</p>
-              <input {...register('city')} placeholder="Type in your city" />
-              <p>{errors.city?.message}</p>
-              <input
-                {...register('zipCode')}
-                placeholder="Type in your zip code"
-              />
-              <p>{errors.zipCode?.message}</p>
-              <input
-                {...register('phone')}
-                placeholder="Type in your phone number"
-              />
-              <p>{errors.phone?.message}</p>
-              <input
-                {...register('email')}
-                placeholder="Type in your e-mail address"
-              />
-              <p>{errors.email?.message}</p>
-              <input
-                {...register('password')}
-                placeholder="Choose a password"
-                type="password"
-              />
-              <p>{errors.password?.message}</p>
+                <input
+                  {...register('firstName')}
+                  placeholder="Type in your first name"
+                />
+                <p>{errors.firstName?.message}</p>
+                <input
+                  {...register('lastName')}
+                  placeholder="Type in your last name"
+                />
+                <p>{errors.lastName?.message}</p>
+                <input
+                  {...register('adress')}
+                  placeholder="Type in your address"
+                />
+                <p>{errors.adress?.message}</p>
+                <input {...register('city')} placeholder="Type in your city" />
+                <p>{errors.city?.message}</p>
+                <input
+                  {...register('zipCode')}
+                  placeholder="Type in your zip code"
+                />
+                <p>{errors.zipCode?.message}</p>
+                <input
+                  {...register('phone')}
+                  placeholder="Type in your phone number"
+                />
+                <p>{errors.phone?.message}</p>
+                <input
+                  {...register('email')}
+                  placeholder="Type in your e-mail address"
+                />
+                <p>{errors.email?.message}</p>
+                <input
+                  {...register('password')}
+                  placeholder="Choose a password"
+                  type="password"
+                />
+                <p>{errors.password?.message}</p>
 
-              <input
-                {...register('confirmPassword')}
-                placeholder="Confirm password"
-                type="password"
-              />
-              <p>{errors.confirmPassword?.message}</p>
-              <button type="submit" className="formButton">
-                Create account
-              </button>
-            </form>
-          </div>
-        </Wrapper>
-      </div>
+                <input
+                  {...register('confirmPassword')}
+                  placeholder="Confirm password"
+                  type="password"
+                />
+                <p>{errors.confirmPassword?.message}</p>
+                <button type="submit" className="formButton">
+                  Create account
+                </button>
+              </form>
+            </div>
+          </Wrapper>
+        </div>
+      </UnAuthWrapper>
     </>
   );
 }
