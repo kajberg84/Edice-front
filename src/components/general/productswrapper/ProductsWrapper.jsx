@@ -2,7 +2,7 @@
 import { Card } from "../card/Card";
 
 // helpers
-import { products } from "../../../api/ecomData";
+import { products } from "../../../api/ecomdata";
 
 // styles
 import styles from "./ProductsWrapper.module.scss";

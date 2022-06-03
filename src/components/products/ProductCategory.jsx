@@ -6,7 +6,7 @@ import { Hero } from "../general/hero/Hero";
 import { ProductsWrapper } from "./productswrapper/ProductsWrapper";
 
 // helpers
-import { products } from "../../api/ecomData";
+import { products } from "../../api/ecomdata";
 
 export const ProductCategory = ({ title, productsData }) => {
   return (
