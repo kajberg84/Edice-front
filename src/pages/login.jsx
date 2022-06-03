@@ -15,7 +15,7 @@ import { UnAuthWrapper } from "../components/layout/wrapper/UnAuthWrapper";
 
 // helpers
 import { RoutingPath } from "../helpers/RoutingPath";
-import { getUser } from "../api/users";
+import { getUser } from "../api/mockusers";
 import { setLocalStorage } from "../utils/localStorageHandler";
 
 // styles

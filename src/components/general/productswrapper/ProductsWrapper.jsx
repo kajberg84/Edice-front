@@ -2,7 +2,7 @@
 import { Card } from "../card/Card";
 
 // helpers
-import { products } from "../../../api/tomte";
+import { products } from "../../../api/mockdata";
 
 // styles
 import styles from "./ProductsWrapper.module.scss";
