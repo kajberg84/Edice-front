@@ -1,14 +1,13 @@
 // components
-import { Seo } from '../../components/seo/Seo';
-import { Hero } from '../../components/general/hero/Hero';
-import { ProductsWrapper } from '../../components/general/productsWrapper/ProductsWrapper';
-import { ProductCategories } from '../../components/products/ProductCategories/ProductCategories';
+import { Seo } from "../../components/seo/Seo";
+import { Hero } from "../../components/general/hero/Hero";
+import { ProductCategories } from "../../components/products/ProductCategories/ProductCategories";
 
 // helpers
-import { RoutingPath } from '../../helpers/RoutingPath';
+import { RoutingPath } from "../../helpers/RoutingPath";
 
 // style
-import style from '../../styles/pages/Shop.module.scss';
+import style from "../../styles/pages/Shop.module.scss";
 
 export default function Shop() {
   return (
