@@ -1,21 +1,21 @@
 // imports
-import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 // components
-import { Seo } from '../components/seo/Seo';
-import { Hero } from '../components/general/hero/Hero';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
-import { UnAuthWrapper } from '../components/layout/wrapper/UnAuthWrapper';
+import { Seo } from "../components/seo/Seo";
+import { Hero } from "../components/general/hero/Hero";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
+import { UnAuthWrapper } from "../components/layout/wrapper/UnAuthWrapper";
 
 // helpers
-import { RoutingPath } from '../helpers/RoutingPath';
-import { users } from '../api/users';
+import { RoutingPath } from "../helpers/RoutingPath";
+import { users } from "../api/mockusers";
 
 // styles
-import styles from '../styles/pages/Register.module.scss';
+import styles from "../styles/pages/Register.module.scss";
 
 // Schema for formvalidating
 const registerSchema = yup
@@ -31,7 +31,7 @@ const registerSchema = yup
     confirmPassword: yup
       .string()
       .required()
-      .oneOf([yup.ref('password')], 'Passwords must match'),
+      .oneOf([yup.ref("password")], "Passwords must match"),
   })
   .required();
 
@@ -41,7 +41,7 @@ export default function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: "onBlur",
     resolver: yupResolver(registerSchema),
   });
 
@@ -57,7 +57,7 @@ export default function Register() {
       city: data.city,
       phone: data.phone,
       email: data.email,
-      userlevel: 'basic',
+      userlevel: "basic",
       password: data.confirmPassword,
       created: new Date(),
     };
@@ -86,46 +86,46 @@ export default function Register() {
                 <h3>Type in your information to register an account</h3>
 
                 <input
-                  {...register('firstName')}
+                  {...register("firstName")}
                   placeholder="Type in your first name"
                 />
                 <p>{errors.firstName?.message}</p>
                 <input
-                  {...register('lastName')}
+                  {...register("lastName")}
                   placeholder="Type in your last name"
                 />
                 <p>{errors.lastName?.message}</p>
                 <input
-                  {...register('adress')}
+                  {...register("adress")}
                   placeholder="Type in your address"
                 />
                 <p>{errors.adress?.message}</p>
-                <input {...register('city')} placeholder="Type in your city" />
+                <input {...register("city")} placeholder="Type in your city" />
                 <p>{errors.city?.message}</p>
                 <input
-                  {...register('zipCode')}
+                  {...register("zipCode")}
                   placeholder="Type in your zip code"
                 />
                 <p>{errors.zipCode?.message}</p>
                 <input
-                  {...register('phone')}
+                  {...register("phone")}
                   placeholder="Type in your phone number"
                 />
                 <p>{errors.phone?.message}</p>
                 <input
-                  {...register('email')}
+                  {...register("email")}
                   placeholder="Type in your e-mail address"
                 />
                 <p>{errors.email?.message}</p>
                 <input
-                  {...register('password')}
+                  {...register("password")}
                   placeholder="Choose a password"
                   type="password"
                 />
                 <p>{errors.password?.message}</p>
 
                 <input
-                  {...register('confirmPassword')}
+                  {...register("confirmPassword")}
                   placeholder="Confirm password"
                   type="password"
                 />

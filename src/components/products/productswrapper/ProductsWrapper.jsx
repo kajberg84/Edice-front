@@ -3,7 +3,6 @@ import { Card } from "../../general/card/Card";
 import { ProductsCard } from "../ProductsCard/ProductsCard";
 
 // helpers
-// import { products } from '../../../api/ecomdata';
 
 // styles
 import styles from "./ProductsWrapper.module.scss";
