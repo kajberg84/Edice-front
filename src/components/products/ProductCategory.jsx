@@ -1,12 +1,12 @@
 // imports
-import * as React from 'react';
+import * as React from "react";
 
 // components
-import { Hero } from '../general/hero/Hero';
-import { ProductsWrapper } from './productswrapper/ProductsWrapper';
+import { Hero } from "../general/hero/Hero";
+import { ProductsWrapper } from "./productswrapper/ProductsWrapper";
 
 // helpers
-import { products } from '../../api/EcomData';
+import { products } from "../../api/ecomData";
 
 export const ProductCategory = ({ title, productsData }) => {
   return (

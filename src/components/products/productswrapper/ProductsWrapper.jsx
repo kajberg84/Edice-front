@@ -1,12 +1,12 @@
 // components
-import { Card } from '../../general/card/Card';
-import { ProductsCard } from '../ProductsCard/ProductsCard';
+import { Card } from "../../general/card/Card";
+import { ProductsCard } from "../ProductsCard/ProductsCard";
 
 // helpers
-// import { products } from '../../../api/EcomData';
+// import { products } from '../../../api/ecomData';
 
 // styles
-import styles from './ProductsWrapper.module.scss';
+import styles from "./ProductsWrapper.module.scss";
 
 export const ProductsWrapper = ({ productsData }) => {
   return (
