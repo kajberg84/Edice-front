@@ -29,7 +29,7 @@ export default function DiceProductPage({ productData }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("https://mattis-test.herokuapp.com/resource/getall");
+  const res = await fetch("https://edice-back.herokuapp.com/product");
   const products = await res.json();
 
   // Filtrera produkter efter kategori
@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   // skapa funktionalitet i backend att kunna fetcha på en produkts slug
   const res = await fetch(
-    `https://mattis-test.herokuapp.com/resource/?slug=${context.params.slug}`
+    `https://edice-back.herokuapp.com/product/?slug=${context.params.slug}`
   );
   const data = await res.json();
 

@@ -1,11 +1,11 @@
 // imports
-import * as React from 'react';
-import Link from 'next/link';
+import * as React from "react";
+import Link from "next/link";
 
 // components
 
 // styles
-import styles from './ProductsCard.module.scss';
+import styles from "./ProductsCard.module.scss";
 
 export const ProductsCard = ({ product }) => {
   return (
@@ -14,7 +14,10 @@ export const ProductsCard = ({ product }) => {
         <Link href={`/shop/${product.category}/${product.slug}`}>
           <a>
             <div className={styles.card_img_wrapper}>
-              <img src={`/images/${product.img}`} alt={product.title} />
+              <img
+                src={`/images/${product.imagePrimary}`}
+                alt={product.title}
+              />
             </div>
             <div className={styles.card_content_wrapper}>
               <h2 className={styles.card_title}>{product.title}</h2>
