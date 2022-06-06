@@ -16,6 +16,7 @@ import { RoutingPath } from "../../../../helpers/RoutingPath";
 
 // Styles
 import styles from "./HeaderCart.module.scss";
+import { getData } from "../../../../helpers/FetchHelper";
 
 export const HeaderCart = ({ navPosition }) => {
   const { cart } = React.useContext(CartContext);
