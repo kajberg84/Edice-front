@@ -47,7 +47,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   // skapa funktionalitet i backend att kunna fetcha på en produkts slug
   const res = await fetch(
-    `https://edice-back.herokuapp.com/product/?slug=${context.params.slug}`
+    `https://edice-back.herokuapp.com/product/slug/?slug=${context.params.slug}`
   );
   const data = await res.json();
 
