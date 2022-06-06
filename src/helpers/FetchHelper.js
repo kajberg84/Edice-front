@@ -1,8 +1,10 @@
 // fetch
 // denna funkar ej behöver fixas
-const getData = async (url) => {
-  const res = await fetch(url);
+const getData = async (endpoint) => {
+  const url = "https://edice-back.herokuapp.com/";
+  const res = await fetch(url + endpoint);
   const data = await res.json();
+  console.log(data);
 
   return data;
 };
