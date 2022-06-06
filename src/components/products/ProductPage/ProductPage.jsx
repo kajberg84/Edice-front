@@ -10,7 +10,7 @@ export const ProductPage = ({ product }) => {
   return (
     <div className={styles.content}>
       <div className={styles.content_img_wrapper}>
-        <img src={`/images/${product.img}`} alt={product.title} />
+        <img src={`/images/${product.imagePrimary}`} alt={product.title} />
       </div>
 
       <div className={styles.content_wrapper}>
