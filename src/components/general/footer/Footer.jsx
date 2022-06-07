@@ -18,7 +18,6 @@ import { FooterNavItems, FooterExtraLinksItems } from "./FooterItems";
 import styles from "./Footer.module.scss";
 
 export const Footer = () => {
-  console.log("Footernav items:", FooterNavItems);
   const { user, setUser } = React.useContext(UserContext);
   let navbarItems;
   if (user) {
