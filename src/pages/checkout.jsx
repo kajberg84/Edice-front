@@ -24,8 +24,7 @@ import styles from "../styles/pages/Checkout.module.scss";
 // Schema for formvalidating
 const shippingSchema = yup
   .object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
+    name: yup.string().required(),
     address: yup.string().required(),
     zipCode: yup.string().required(),
     city: yup.string().required(),
@@ -113,21 +112,12 @@ export default function Checkout() {
                 <h3>Type in your information to make a order</h3>
               )}
 
-              <label>First Name</label>
-              <input
-                {...register("firstName")}
-                autoComplete="given-name"
-                placeholder="First name..."
-                defaultValue={user?.fname}
-              />
-              <p>{errors.firstName?.message}</p>
-
-              <label>Last Name</label>
+              <label>Full Name</label>
               <input
                 {...register("lastName")}
-                autoComplete="family-name"
-                placeholder="Last name..."
-                defaultValue={user?.lname}
+                autoComplete="cc-name"
+                placeholder="Full name..."
+                defaultValue={user?.name}
               />
               <p>{errors.lastName?.message}</p>
               <label>Adress</label>
@@ -135,7 +125,7 @@ export default function Checkout() {
                 {...register("address")}
                 autoComplete="street-address"
                 placeholder="Address..."
-                defaultValue={user?.adress}
+                defaultValue={user?.address}
               />
               <p>{errors.address?.message}</p>
               <label>Zip Code</label>
@@ -143,7 +133,7 @@ export default function Checkout() {
                 {...register("zipCode")}
                 autoComplete="postal-code"
                 placeholder="Zip code..."
-                defaultValue={user?.zipCode}
+                defaultValue={user?.zipcode}
               />
               <p>{errors.zipCode?.message}</p>
               <label>City</label>
