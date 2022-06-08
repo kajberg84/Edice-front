@@ -1,26 +1,45 @@
-.account_wrapper {
-  max-width: 1200px;
-  margin: 100px auto;
-}
+.account {
+  &_wrapper {
+    max-width: 1200px;
+    margin: 100px auto;
+  }
 
-.account_button {
-  border: none;
-  outline: none;
-  padding: 12px 18px;
-  background-color: #000000;
-  color: #fff;
-  border-radius: 50px;
-  font-size: 1.6rem;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #000000;
-  transition: 0.5s;
-}
+  &_button {
+    border: none;
+    outline: none;
+    padding: 12px 18px;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #000000;
+    transition: 0.5s;
+    &:hover {
+      background-color: #fff;
+      color: #000000;
+      border: 2px solid #000000;
+      transition: 0.5s;
+    }
+  }
 
-.account_button:hover {
-  background-color: #fff;
-  color: #000000;
-  border: 2px solid #000000;
-  transition: 0.5s;
+  &_form {
+    margin-top: 1rem;
+    input {
+      padding: 10px 20px;
+      margin-bottom: 5px;
+    }
+    label {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    p {
+      margin-left: 1rem;
+      color: red;
+    }
+  }
 }

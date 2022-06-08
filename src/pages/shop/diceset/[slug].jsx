@@ -47,6 +47,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const data = await getData(`product/slug/?slug=${context.params.slug}`);
 
+
   return {
     props: {
       productData: data,

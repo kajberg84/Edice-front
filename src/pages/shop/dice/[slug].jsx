@@ -32,6 +32,7 @@ export default function DiceProductPage({ productData }) {
 export async function getStaticPaths() {
   const products = await getData('product');
 
+
   // Filtrera produkter efter kategori
   const categoryProducts = filterProductsOnCategory(products, 'dice');
 
@@ -44,6 +45,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const data = await getData(`product/slug/?slug=${context.params.slug}`);
+
 
   return {
     props: {
