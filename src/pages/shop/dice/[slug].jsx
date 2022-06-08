@@ -1,13 +1,14 @@
 // imports
-import * as React from "react";
+import * as React from 'react';
 
 // components
-import { Seo } from "../../../components/seo/Seo";
-import { ProductPage } from "../../../components/products/ProductPage/ProductPage";
+import { Seo } from '../../../components/seo/Seo';
+import { ProductPage } from '../../../components/products/ProductPage/ProductPage';
 
 // helpers
-import { RoutingPath } from "../../../helpers/RoutingPath";
-import { filterProductsOnCategory } from "../../../helpers/FilterHelper";
+import { RoutingPath } from '../../../helpers/RoutingPath';
+import { getData } from '../../../helpers/FetchHelper';
+import { filterProductsOnCategory } from '../../../helpers/FilterHelper';
 
 export default function DiceProductPage({ productData }) {
   const product = productData[0];
@@ -18,7 +19,7 @@ export default function DiceProductPage({ productData }) {
         title={product.title}
         description={product.description}
         image="/vercel.svg"
-        pageUrl={RoutingPath.DiceCategory + "/" + product.slug}
+        pageUrl={RoutingPath.DiceCategory + '/' + product.slug}
       />
 
       <>
@@ -29,11 +30,10 @@ export default function DiceProductPage({ productData }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("https://edice-back.herokuapp.com/product");
-  const products = await res.json();
+  const products = await getData('product');
 
   // Filtrera produkter efter kategori
-  const categoryProducts = filterProductsOnCategory(products, "dice");
+  const categoryProducts = filterProductsOnCategory(products, 'dice');
 
   const paths = categoryProducts.map((product) => {
     return { params: { slug: product.slug } };
@@ -43,11 +43,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  // skapa funktionalitet i backend att kunna fetcha på en produkts slug
-  const res = await fetch(
-    `https://edice-back.herokuapp.com/product/?slug=${context.params.slug}`
-  );
-  const data = await res.json();
+  const data = await getData(`product/slug/?slug=${context.params.slug}`);
 
   return {
     props: {
