@@ -18,6 +18,7 @@ import styles from "./AccountModal.module.scss";
 
 //components
 import { removeLocalStorage } from "../../../utils/localStorageHandler";
+import { OnClickBtn } from "../buttons/OnClickButtons";
 
 // todo
 //  fixa in en closeIcon
@@ -28,6 +29,10 @@ export const AccountModal = ({ onCloseModal }) => {
 
   const userData = user?.user;
 
+  const unlockScroll = React.useCallback(() => {
+    document.body.style.overflow = "";
+  }, []);
+
   const handleLogout = () => {
     removeLocalStorage("edice-user");
     setUser(null);
@@ -35,6 +40,7 @@ export const AccountModal = ({ onCloseModal }) => {
 
   const onDeleteAccount = async () => {
     handleLogout();
+    unlockScroll();
     const response = await fetch(
       `https://edice-back.herokuapp.com/user/${userData.userId}`,
       {
@@ -63,12 +69,8 @@ export const AccountModal = ({ onCloseModal }) => {
         </div>
         <p> Are you sure you want to delete your account?</p>
         <div className={styles.modal_content_container}>
-          <button className="btn-primary" onClick={onDeleteAccount}>
-            Yes I'm sure
-          </button>
-          <button className="btn-primary" onClick={onCloseModal}>
-            No don't delete
-          </button>
+          <OnClickBtn onClickHandler={onDeleteAccount} btnText="Yes I'm Sure" />
+          <OnClickBtn onClickHandler={onCloseModal} btnText="No Don't Delete" />
         </div>
       </div>
     </div>
