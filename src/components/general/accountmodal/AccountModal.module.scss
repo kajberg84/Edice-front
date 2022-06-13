@@ -19,6 +19,9 @@
   &_content_container {
     display: flex;
     justify-content: space-around;
+    @media (max-width: $breakpoint-s) {
+      flex-direction: column;
+    }
   }
 
   &_backdrop {

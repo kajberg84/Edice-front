@@ -1,25 +1,25 @@
 // imports
-import { useContext } from 'react';
-import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { useContext } from "react";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 // context
-import { UserContext } from '../context/UserContext';
-import { CartContext } from '../context/CartContext';
+import { UserContext } from "../context/UserContext";
+import { CartContext } from "../context/CartContext";
 
 // components
-import { Seo } from '../components/seo/Seo';
-import { Hero } from '../components/general/hero/Hero';
-import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
+import { Seo } from "../components/seo/Seo";
+import { Hero } from "../components/general/hero/Hero";
+import { ProductCardSmall } from "../components/general/productcardsmall/ProductCardSmall";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
 
 // helpers
-import { RoutingPath } from '../helpers/RoutingPath';
+import { RoutingPath } from "../helpers/RoutingPath";
 
 // styles
-import styles from '../styles/pages/Checkout.module.scss';
+import styles from "../styles/pages/Checkout.module.scss";
 
 // Schema for formvalidating
 const shippingSchema = yup
@@ -53,7 +53,7 @@ export default function Checkout() {
     // TODO Denna behöver refaktoriseras så att den följer next routern alternativt att ändra denna helt och inte jobba med url parametrar
     router.push(RoutingPath.OrderConfirmation);
     console.log(
-      'your order with details:' + JSON.stringify(values) + ' is confirmed'
+      "your order with details:" + JSON.stringify(values) + " is confirmed"
     );
   };
 
@@ -62,12 +62,11 @@ export default function Checkout() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: "onBlur",
     resolver: yupResolver(shippingSchema),
   });
 
   const userData = user?.user;
-  console.log(userData);
   return (
     <>
       <Seo
@@ -100,7 +99,7 @@ export default function Checkout() {
                 <p className={styles.total}>
                   {allPrices.length > 0
                     ? allPrices.reduce((total, price) => total + price)
-                    : '0'}{' '}
+                    : "0"}{" "}
                   $
                 </p>
               </div>
@@ -110,14 +109,16 @@ export default function Checkout() {
               onSubmit={handleSubmit(onSubmit)}
             >
               {userData ? (
-                <h3>{userData.name}, controll your information to make a order</h3>
+                <h3>
+                  {userData.name}, controll your information to make a order
+                </h3>
               ) : (
                 <h3>Type in your information to make a order</h3>
               )}
 
               <label>Full Name</label>
               <input
-                {...register('lastName')}
+                {...register("lastName")}
                 autoComplete="cc-name"
                 placeholder="Full name..."
                 defaultValue={userData?.name}
@@ -125,7 +126,7 @@ export default function Checkout() {
               <p>{errors.lastName?.message}</p>
               <label>Adress</label>
               <input
-                {...register('address')}
+                {...register("address")}
                 autoComplete="street-address"
                 placeholder="Address..."
                 defaultValue={userData?.address}
@@ -133,7 +134,7 @@ export default function Checkout() {
               <p>{errors.address?.message}</p>
               <label>Zip Code</label>
               <input
-                {...register('zipCode')}
+                {...register("zipCode")}
                 autoComplete="postal-code"
                 placeholder="Zip code..."
                 defaultValue={userData?.zipcode}
@@ -141,7 +142,7 @@ export default function Checkout() {
               <p>{errors.zipCode?.message}</p>
               <label>City</label>
               <input
-                {...register('city')}
+                {...register("city")}
                 autoComplete="city"
                 placeholder="City..."
                 defaultValue={userData?.city}
@@ -149,7 +150,7 @@ export default function Checkout() {
               <p>{errors.city?.message}</p>
               <label>Phone</label>
               <input
-                {...register('phone')}
+                {...register("phone")}
                 autoComplete="tel"
                 placeholder="Phone number..."
                 defaultValue={userData?.phone}
@@ -157,7 +158,7 @@ export default function Checkout() {
               <p>{errors.phone?.message}</p>
               <label>E-mail</label>
               <input
-                {...register('email')}
+                {...register("email")}
                 autoComplete="email"
                 placeholder="E-mail..."
                 defaultValue={userData?.email}
