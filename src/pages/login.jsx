@@ -2,11 +2,11 @@
 import React from 'react';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+// import { useForm } from 'react-hook-form';
+// import { yupResolver } from '@hookform/resolvers/yup';
+// import * as yup from 'yup';
+// import axios from 'axios';
+// import jwt_decode from 'jwt-decode';
 
 // context
 import { UserContext } from '../context/UserContext';
@@ -24,95 +24,53 @@ import { setLocalStorage } from '../utils/localStorageHandler';
 // styles
 import styles from '../styles/pages/Login.module.scss';
 
-// Schema for formvalidating
-const loginSchema = yup
-  .object({
-    email: yup.string().email().required(),
-    password: yup.string().required(),
-  })
-  .required();
-
 export default function Login() {
   const router = useRouter();
   const { setUser } = useContext(UserContext);
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  // console.log(email, password);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    mode: 'onBlur',
-    resolver: yupResolver(loginSchema),
-  });
-
-  async function postAxios(userData, URL) {
-    const sendUrl = URL;
-    try {
-      const response = await axios({
-        url: sendUrl,
-        method: 'POST',
-        data: {
-          email: userData.email,
-          password: userData.password,
-        },
-      });
-      const { data } = response;
-      return data;
-    } catch (error) {
-      console.log('Error i post axios', error);
-    }
-  }
-
-  // Handling response from Login
-  function handleRespLogin(tokens) {
-    const parsedJwt = jwt_decode(tokens.access_token);
-    setUser(parsedJwt);
-    router.push('/');
-  }
-
-  // handle login
-  async function handleLogin(userData) {
-    const responseLogin = await postAxios(
-      { userData },
-      `https://edice-back.herokuapp.com/login`
-    );
-    if (responseLogin) {
-      handleRespLogin(responseLogin);
-    } else {
-      console.log('login response false, fel lösen / user');
-      //visa error
-      setShowErrorStatus(true);
-    }
-  }
+  // const login = (data) => {
+  //   return new Promise((res) => {
+  //     setUser(data);
+  //     window.localStorage.setItem('edice-user', JSON.stringify(data));
+  //     res();
+  //   });
+  // };
 
   // On submit
-  const onSubmit = async (data) => {
-    try {
-      // const responseUser = await getUser(data.email, data.password);
-      user = {
-        email: email,
-        password: password,
-      };
-      console.log('user:', user);
-      handleLogin(user);
+  const onFormSubmit = async (event) => {
+    event.preventDefault();
 
-      if (!responseUser) {
-        alert('Wrong email/ password or no user found');
-        return;
-      }
+    const user = {
+      email,
+      password,
+    };
 
-      setLocalStorage('edice-user', responseUser);
-      setUser(responseUser);
-    } catch (error) {
-      console.log('Login: ', error);
+    // Logga in användaren i backenden
+    const response = await fetch('https://edice-back.herokuapp.com/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    });
+
+    const data = await response.json();
+
+    if (response.status === 200) {
+      window.localStorage.setItem('edice-user', JSON.stringify(data));
+      setUser(data);
+      // login(data).then(() => {
+      //   router.push(RoutingPath.Account);
+      // });
+
+      setTimeout(() => {
+        router.push(RoutingPath.Account);
+      }, 300);
     }
-
-    router.push(`/${RoutingPath.Account}`);
   };
+
   return (
     <>
       <Seo
@@ -129,17 +87,14 @@ export default function Login() {
               <div className={styles.login_wrapper}>
                 <h2>Sign In to E-dice</h2>
                 <form
-                  onSubmit={handleSubmit(onSubmit)}
+                  onSubmit={(event) => onFormSubmit(event)}
                   className={styles.login_form}
                 >
                   <input
-                    {...register('email')}
                     placeholder="Type in your email"
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  <p>{errors.email?.message}</p>
                   <input
-                    {...register('password')}
                     placeholder="Type in your password"
                     type="password"
                     onChange={(e) => setPassword(e.target.value)}

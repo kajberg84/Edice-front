@@ -1,11 +1,21 @@
+import * as React from 'react';
+
 import { HeaderModalItem } from './header-modal-item/HeaderModalItem';
 import { HeaderModalLogo } from './header-modal-logo/HeaderModalLogo';
 
 // nextjs imports
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 // icons
 import closeIcon from '/public/icons/x-circle.svg';
+
+// context
+import { UserContext } from '../../../../context/UserContext';
+
+// helpers
+import { RoutingPath } from '../../../../helpers/RoutingPath';
+import { removeLocalStorage } from '../../../../utils/localStorageHandler';
 
 // styles
 import styles from './HeaderModal.module.scss';
@@ -15,6 +25,20 @@ import styles from './HeaderModal.module.scss';
 // - mappa igenom rätt navItems
 
 export const HeaderModal = ({ onCloseModal, headerItems }) => {
+  const { user, setUser } = React.useContext(UserContext);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    removeLocalStorage('edice-user');
+    setUser(null);
+    router.push(RoutingPath.Login);
+    onCloseModal();
+  };
+  const signOutButton = (
+    <button className={styles.header_modal_button} onClick={handleLogout}>
+      Logout
+    </button>
+  );
   return (
     <div
       className={`${styles.header_modal_container}`}
@@ -44,6 +68,7 @@ export const HeaderModal = ({ onCloseModal, headerItems }) => {
                 />
               );
             })}
+            {user ? signOutButton : null}
           </ul>
         </nav>
       </div>

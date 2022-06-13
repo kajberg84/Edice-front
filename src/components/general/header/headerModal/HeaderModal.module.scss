@@ -1,5 +1,5 @@
 // imports
-// @import '../../../../styles/variables.module.scss';
+@import '../../../../styles/variabels.scss';
 
 // styling
 
@@ -43,4 +43,26 @@
   justify-content: flex-start;
   gap: 40px;
   margin-top: 60px;
+}
+
+.header_modal_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: $color-black;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: $p-large;
+  transition: 0.5s;
+  font-family: 'Poppins', sans-serif;
+
+  &:hover {
+    color: $color-grey;
+    text-decoration: underline;
+    transition: 0.5s;
+  }
 }

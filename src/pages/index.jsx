@@ -1,19 +1,26 @@
-import Link from "next/link";
+import Link from 'next/link';
+import { useContext } from 'react';
+
+// context
+import { UserContext } from '../context/UserContext';
 
 // components
-import { Seo } from "../components/seo/Seo";
-import { Hero } from "../components/general/hero/Hero";
-import { ProductCategoryCard } from "../components/products/ProductCategories/ProductCategoryCard/ProductCategoryCard";
-import { NavBtn } from "../components/general/buttons/NavButtons";
+import { Seo } from '../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
+import { ProductCategoryCard } from '../components/products/ProductCategories/ProductCategoryCard/ProductCategoryCard';
+import { NavBtn } from '../components/general/buttons/NavButtons';
 
 // helpers
-import { ProductCategoryItems } from "../components/products/ProductCategories/ProductCategoryItems";
-import { RoutingPath } from "../helpers/RoutingPath";
+import { ProductCategoryItems } from '../components/products/ProductCategories/ProductCategoryItems';
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // style
-import styles from "../styles/pages/Home.module.scss";
+import styles from '../styles/pages/Home.module.scss';
 
 export default function Home() {
+  const { user } = useContext(UserContext);
+  console.log('User nedanför från context');
+  console.log(user);
   return (
     <>
       <Seo
@@ -47,7 +54,7 @@ export default function Home() {
           <div className={styles.home_wrapper_content}>
             <h2>Join the Edice family</h2>
             <p>Make checkout easier, sign up and create an account!</p>
-            <NavBtn link={RoutingPath.Register} btnText={"Register now"} />
+            <NavBtn link={RoutingPath.Register} btnText={'Register now'} />
           </div>
         </div>
       </>
