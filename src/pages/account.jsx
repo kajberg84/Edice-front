@@ -1,26 +1,26 @@
 // Imports
-import * as React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import * as React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 // Context
-import { UserContext } from "../context/UserContext";
+import { UserContext } from '../context/UserContext';
 
 // Components
-import { Hero } from "../components/general/hero/Hero";
-import { Seo } from "../components/seo/Seo";
-import { Wrapper } from "../components/layout/wrapper/Wrapper";
-import { AuthWrapper } from "../components/layout/wrapper/AuthWrapper";
+import { Hero } from '../components/general/hero/Hero';
+import { Seo } from '../components/seo/Seo';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
+import { AuthWrapper } from '../components/layout/wrapper/AuthWrapper';
 
 // Helpers
-import { RoutingPath } from "../helpers/RoutingPath";
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from "../styles/pages/Account.module.scss";
+import styles from '../styles/pages/Account.module.scss';
 
 const Account = () => {
   const { user } = useContext(UserContext);
@@ -40,7 +40,7 @@ const Account = () => {
 
   const onApplyChanges = () => {
     //TODO put request for update user
-    console.log("code for Put request here");
+    console.log('code for Put request here');
   };
 
   const {
@@ -48,9 +48,11 @@ const Account = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
     resolver: yupResolver(userSchema),
   });
+
+  const userData = user?.user;
 
   return (
     <>
@@ -63,7 +65,7 @@ const Account = () => {
 
       <AuthWrapper>
         <div className={styles.account_container}>
-          {user && <Hero title={`Hello ${user.fname}`} />}
+          {user && <Hero title={`Hello ${userData.name}`} />}
 
           <Wrapper>
             <div className={styles.account_wrapper}>
@@ -91,82 +93,66 @@ const Account = () => {
               >
                 <label htmlFor="name"> Full name</label>
                 <input
-                  {...register("name")}
+                  {...register('name')}
                   autoComplete="cc-name"
                   type="text"
                   name="name"
                   placeholder="Full name..."
-                  defaultValue={user?.name}
+                  defaultValue={userData?.name}
                 />
                 <p>{errors.name?.message}</p>
                 <label htmlFor="address"> Address</label>
                 <input
-                  {...register("address")}
+                  {...register('address')}
                   autoComplete="street-address"
                   type="text"
                   name="address"
                   placeholder="Address..."
-                  defaultValue={user?.address}
+                  defaultValue={userData?.address}
                 />
                 <p>{errors.address?.message}</p>
                 <label htmlFor="city"> City</label>
                 <input
-                  {...register("city")}
+                  {...register('city')}
                   autoComplete="city"
                   type="text"
                   name="city"
                   placeholder="City..."
-                  defaultValue={user?.city}
+                  defaultValue={userData?.city}
                 />
                 <p>{errors.city?.message}</p>
                 <label htmlFor="zipcode"> Zipcode</label>
                 <input
-                  {...register("zipCode")}
+                  {...register('zipCode')}
                   autoComplete="postal-code"
                   type="number"
                   name="zipcode"
                   placeholder="Zipcode..."
-                  defaultValue={user?.zipCode}
+                  defaultValue={userData?.zipcode}
                 />
                 <p>{errors.zipCode?.message}</p>
 
                 <label htmlFor="phone">Phone</label>
                 <input
-                  {...register("phone")}
+                  {...register('phone')}
                   autoComplete="tel"
                   type="number"
                   name="phone"
                   placeholder="Phone..."
-                  defaultValue={user?.phone}
+                  defaultValue={userData?.phone}
                 />
                 <p>{errors.phone?.message}</p>
                 <label htmlFor="email">Email</label>
                 <input
-                  {...register("email")}
+                  {...register('email')}
                   autoComplete="email"
                   type="email"
                   name="email"
                   placeholder="Email..."
-                  defaultValue={user?.email}
+                  defaultValue={userData?.email}
                 />
                 <p>{errors.email?.message}</p>
-                <label htmlFor="password">Password</label>
-                <input
-                  {...register("password")}
-                  type="password"
-                  name="password"
-                  placeholder="password..."
-                  defaultValue={user?.password}
-                />
-                <p>{errors.password?.message}</p>
 
-                <label htmlFor="password">Confirm new password</label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm new password... only needed if you changed password above"
-                />
-                <p>{errors.password?.message}</p>
                 <button type="submit" className="formButton">
                   Apply changes
                 </button>

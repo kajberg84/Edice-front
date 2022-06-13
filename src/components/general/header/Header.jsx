@@ -1,24 +1,24 @@
 // imports
-import * as React from "react";
-import Link from "next/link";
+import * as React from 'react';
+import Link from 'next/link';
 
 // context
-import { UserContext } from "../../../context/UserContext";
+import { UserContext } from '../../../context/UserContext';
 
 // components
-import { HeaderNavbar } from "./navbar/HeaderNavbar";
-import { HeaderModal } from "./headerModal/HeaderModal";
-import { HeaderCart } from "./headerCart/HeaderCart";
+import { HeaderNavbar } from './navbar/HeaderNavbar';
+import { HeaderModal } from './headerModal/HeaderModal';
+import { HeaderCart } from './headerCart/HeaderCart';
 
 // helpers
-import { RoutingPath } from "../../../helpers/RoutingPath";
-import { NavbarItems } from "./navbar/NavbarItems";
+import { RoutingPath } from '../../../helpers/RoutingPath';
+import { NavbarItems } from './navbar/NavbarItems';
 
 // icons
-import { MenuIcon } from "@heroicons/react/outline";
+import { MenuIcon } from '@heroicons/react/outline';
 
 // Styles
-import styles from "./Header.module.scss";
+import styles from './Header.module.scss';
 
 export const Header = () => {
   const { user } = React.useContext(UserContext);
@@ -29,11 +29,11 @@ export const Header = () => {
 
   // lockScroll kan brytas ut till en custom hook
   const lockScroll = React.useCallback(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   }, []);
 
   const unlockScroll = React.useCallback(() => {
-    document.body.style.overflow = "";
+    document.body.style.overflow = '';
   }, []);
 
   const openModal = () => {
@@ -46,19 +46,14 @@ export const Header = () => {
     unlockScroll();
   };
 
-  // lösning för att rendera ut navbaritems för användare (kanske ej är helt optimal lösning)
   React.useEffect(() => {
-    switch (userLevel) {
-      case 1:
-        setNavItems(NavbarItems.guest);
-        break;
-      case 2:
-        setNavItems(NavbarItems.user);
-        break;
-      case 3:
-        setNavItems(NavbarItems.admin);
+    // const ediceUser = window.localStorage.getItem('edice-user');
+    if (user) {
+      setNavItems(NavbarItems.user);
+    } else {
+      setNavItems(NavbarItems.guest);
     }
-  }, [userLevel, navItems]);
+  }, [user]);
 
   return (
     <header className={styles.header_container}>
