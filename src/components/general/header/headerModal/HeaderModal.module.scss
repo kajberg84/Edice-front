@@ -1,5 +1,5 @@
 // imports
-@import '../../../../styles/variabels.scss';
+@import "../../../../styles/variabels.scss";
 
 // styling
 
@@ -46,19 +46,14 @@
 }
 
 .header_modal_button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   outline: none;
   border: none;
   background-color: transparent;
   color: $color-black;
-  border-radius: 50px;
   cursor: pointer;
-  margin-left: 20px;
-  font-size: $p-large;
+  font-size: 32px;
   transition: 0.5s;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 
   &:hover {
     color: $color-grey;
