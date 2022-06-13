@@ -74,7 +74,7 @@ const Account = () => {
     resolver: yupResolver(updateSchema),
   });
 
-  // Delete account
+  // Delete account modal
   const lockScroll = React.useCallback(() => {
     document.body.style.overflow = "hidden";
   }, []);
@@ -91,20 +91,6 @@ const Account = () => {
   const closeModal = () => {
     setShowModal(false);
     unlockScroll();
-  };
-
-  const onDeleteAccount = async () => {
-    alert("Do you really want to delete your account?");
-    /* const response = await fetch(
-      `https://edice-back.herokuapp.com/user/${userData.userId}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${user.access_token}`,
-        }
-      }
-    ); */
   };
 
   const userData = user?.user;
