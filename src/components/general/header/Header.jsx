@@ -1,24 +1,24 @@
 // imports
-import * as React from 'react';
-import Link from 'next/link';
+import * as React from "react";
+import Link from "next/link";
 
 // context
-import { UserContext } from '../../../context/UserContext';
+import { UserContext } from "../../../context/UserContext";
 
 // components
-import { HeaderNavbar } from './navbar/HeaderNavbar';
-import { HeaderModal } from './headerModal/HeaderModal';
-import { HeaderCart } from './headerCart/HeaderCart';
+import { HeaderNavbar } from "./navbar/HeaderNavbar";
+import { HeaderModal } from "./headerModal/HeaderModal";
+import { HeaderCart } from "./headerCart/HeaderCart";
 
 // helpers
-import { RoutingPath } from '../../../helpers/RoutingPath';
-import { NavbarItems } from './navbar/NavbarItems';
+import { RoutingPath } from "../../../helpers/RoutingPath";
+import { NavbarItems } from "./navbar/NavbarItems";
 
 // icons
-import { MenuIcon } from '@heroicons/react/outline';
+import { MenuIcon } from "@heroicons/react/outline";
 
 // Styles
-import styles from './Header.module.scss';
+import styles from "./Header.module.scss";
 
 export const Header = () => {
   const { user } = React.useContext(UserContext);
@@ -29,11 +29,11 @@ export const Header = () => {
 
   // lockScroll kan brytas ut till en custom hook
   const lockScroll = React.useCallback(() => {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   }, []);
 
   const unlockScroll = React.useCallback(() => {
-    document.body.style.overflow = '';
+    document.body.style.overflow = "";
   }, []);
 
   const openModal = () => {

@@ -1,0 +1,52 @@
+@import "../../../styles/variabels.scss";
+
+.modal {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 20px;
+  background-color: $color-off-white;
+  border-radius: 30px;
+  z-index: 1000;
+
+  @media (min-width: 1024px) {
+    margin: 100px auto;
+    padding: 30px;
+  }
+  p {
+    font-size: 4rem;
+    font-weight: bold;
+  }
+  &_content_container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &_backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.801);
+    overflow: auto;
+  }
+
+  &_content_wrapper {
+    margin-top: 60px;
+  }
+
+  &_close {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+
+    @media (min-width: 1024px) {
+      margin-bottom: 0;
+    }
+
+    &_icon {
+      width: 40px;
+      cursor: pointer;
+    }
+  }
+}

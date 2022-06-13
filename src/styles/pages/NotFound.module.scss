@@ -1,8 +1,14 @@
+@import "../variabels.scss";
+
 .notfound_wrapper {
   max-width: 1200px;
   margin: 50px auto;
   display: flex;
   align-items: center;
+
+  @media (max-width: $breakpoint-m) {
+    flex-direction: column;
+  }
 
   h1,
   p {

@@ -1,31 +1,33 @@
 // Imports
-import * as React from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import * as React from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 // Context
-import { UserContext } from '../context/UserContext';
+import { UserContext } from "../context/UserContext";
 
 // Components
-import { Hero } from '../components/general/hero/Hero';
-import { Seo } from '../components/seo/Seo';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
-import { AuthWrapper } from '../components/layout/wrapper/AuthWrapper';
+import { Hero } from "../components/general/hero/Hero";
+import { Seo } from "../components/seo/Seo";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
+import { AuthWrapper } from "../components/layout/wrapper/AuthWrapper";
+import { AccountModal } from "../components/general/accountmodal/AccountModal";
 
 // Helpers
-import { RoutingPath } from '../helpers/RoutingPath';
+import { RoutingPath } from "../helpers/RoutingPath";
 
 // styles
-import styles from '../styles/pages/Account.module.scss';
+import styles from "../styles/pages/Account.module.scss";
 
 const Account = () => {
   const { user } = useContext(UserContext);
+  const [showModal, setShowModal] = React.useState(false);
 
-  const userSchema = yup
+  const updateSchema = yup
     .object({
       name: yup.string().required(),
       address: yup.string().required(),
@@ -38,9 +40,29 @@ const Account = () => {
     })
     .required();
 
-  const onApplyChanges = () => {
-    //TODO put request for update user
-    console.log('code for Put request here');
+  //uppdtera account info
+  const onApplyChanges = async (data) => {
+    const updatedUser = {
+      name: data.name,
+      address: data.address,
+      city: data.city,
+      zipcode: data.zipcode,
+      phone: data.phone,
+      email: data.email,
+      password: userData.password,
+    };
+
+    const response = await fetch(
+      `https://edice-back.herokuapp.com/user/${userData.userId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.access_token}`,
+        },
+        body: JSON.stringify(updatedUser),
+      }
+    );
   };
 
   const {
@@ -48,9 +70,42 @@ const Account = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
-    resolver: yupResolver(userSchema),
+    mode: "onBlur",
+    resolver: yupResolver(updateSchema),
   });
+
+  // Delete account
+  const lockScroll = React.useCallback(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  const unlockScroll = React.useCallback(() => {
+    document.body.style.overflow = "";
+  }, []);
+
+  const openModal = () => {
+    setShowModal(true);
+    lockScroll();
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    unlockScroll();
+  };
+
+  const onDeleteAccount = async () => {
+    alert("Do you really want to delete your account?");
+    /* const response = await fetch(
+      `https://edice-back.herokuapp.com/user/${userData.userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.access_token}`,
+        }
+      }
+    ); */
+  };
 
   const userData = user?.user;
 
@@ -93,7 +148,7 @@ const Account = () => {
               >
                 <label htmlFor="name"> Full name</label>
                 <input
-                  {...register('name')}
+                  {...register("name")}
                   autoComplete="cc-name"
                   type="text"
                   name="name"
@@ -103,7 +158,7 @@ const Account = () => {
                 <p>{errors.name?.message}</p>
                 <label htmlFor="address"> Address</label>
                 <input
-                  {...register('address')}
+                  {...register("address")}
                   autoComplete="street-address"
                   type="text"
                   name="address"
@@ -113,7 +168,7 @@ const Account = () => {
                 <p>{errors.address?.message}</p>
                 <label htmlFor="city"> City</label>
                 <input
-                  {...register('city')}
+                  {...register("city")}
                   autoComplete="city"
                   type="text"
                   name="city"
@@ -123,7 +178,7 @@ const Account = () => {
                 <p>{errors.city?.message}</p>
                 <label htmlFor="zipcode"> Zipcode</label>
                 <input
-                  {...register('zipCode')}
+                  {...register("zipCode")}
                   autoComplete="postal-code"
                   type="number"
                   name="zipcode"
@@ -134,7 +189,7 @@ const Account = () => {
 
                 <label htmlFor="phone">Phone</label>
                 <input
-                  {...register('phone')}
+                  {...register("phone")}
                   autoComplete="tel"
                   type="number"
                   name="phone"
@@ -144,7 +199,7 @@ const Account = () => {
                 <p>{errors.phone?.message}</p>
                 <label htmlFor="email">Email</label>
                 <input
-                  {...register('email')}
+                  {...register("email")}
                   autoComplete="email"
                   type="email"
                   name="email"
@@ -168,7 +223,11 @@ const Account = () => {
                 Be aware! Deleting your account means you can no longer log in
                 or see your orders online.
               </p>
-              <button className="btn-primary">Delete account</button>
+              <button className="btn-primary" onClick={openModal}>
+                Delete account
+              </button>
+
+              {showModal && <AccountModal onCloseModal={closeModal} />}
             </div>
           </Wrapper>
         </div>

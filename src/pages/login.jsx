@@ -1,25 +1,28 @@
 // Imports
+
 import React from 'react';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 
 // context
-import { UserContext } from '../context/UserContext';
+import { UserContext } from "../context/UserContext";
 
 // components
-import { Seo } from '../components/seo/Seo';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
-import { UnAuthWrapper } from '../components/layout/wrapper/UnAuthWrapper';
+import { Seo } from "../components/seo/Seo";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
+import { UnAuthWrapper } from "../components/layout/wrapper/UnAuthWrapper";
 
 // helpers
+
 import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from '../styles/pages/Login.module.scss';
+import styles from "../styles/pages/Login.module.scss";
 
 export default function Login() {
   const router = useRouter();
   const { setUser } = useContext(UserContext);
+
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
   const [error, setError] = React.useState('');
@@ -34,6 +37,7 @@ export default function Login() {
   //   });
   // };
 
+
   // On submit
   const onFormSubmit = async (event) => {
     event.preventDefault();
@@ -42,6 +46,7 @@ export default function Login() {
       email,
       password,
     };
+
 
     try {
       setLoading(true);
@@ -54,7 +59,9 @@ export default function Login() {
         body: JSON.stringify(user),
       });
 
+
       const data = await response.json();
+
 
       if (response.status === 200) {
         window.localStorage.setItem('edice-user', JSON.stringify(data));
