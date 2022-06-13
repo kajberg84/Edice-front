@@ -1,4 +1,5 @@
 // imports
+import * as React from "react";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -12,7 +13,6 @@ import { UnAuthWrapper } from "../components/layout/wrapper/UnAuthWrapper";
 
 // helpers
 import { RoutingPath } from "../helpers/RoutingPath";
-import { users } from "../api/mockusers";
 
 // styles
 import styles from "../styles/pages/Register.module.scss";
@@ -20,11 +20,10 @@ import styles from "../styles/pages/Register.module.scss";
 // Schema for formvalidating
 const registerSchema = yup
   .object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    adress: yup.string().required(),
+    name: yup.string().required(),
+    address: yup.string().required(),
     city: yup.string().required(),
-    zipCode: yup.number().positive().integer().required(),
+    zipcode: yup.number().positive().integer().required(),
     phone: yup.number().positive().integer().required(),
     email: yup.string().email().required(),
     password: yup.string().required(),
@@ -47,21 +46,25 @@ export default function Register() {
 
   const router = useRouter();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const createdUser = {
-      id: Math.random(),
-      fname: data.firstName,
-      lname: data.lastName,
-      adress: data.adress,
-      zipCode: data.zipCode,
+      name: data.name,
+      address: data.address,
       city: data.city,
+      zipcode: data.zipcode,
       phone: data.phone,
       email: data.email,
-      userlevel: "basic",
       password: data.confirmPassword,
-      created: new Date(),
     };
-    users.push(createdUser);
+
+    const response = await fetch("https://edice-back.herokuapp.com/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createdUser),
+    });
+
     router.push(`/${RoutingPath.Login}`);
   };
   return (
@@ -86,24 +89,19 @@ export default function Register() {
                 <h3>Type in your information to register an account</h3>
 
                 <input
-                  {...register("firstName")}
-                  placeholder="Type in your first name"
+                  {...register("name")}
+                  placeholder="Type in your full name"
                 />
-                <p>{errors.firstName?.message}</p>
+                <p>{errors.name?.message}</p>
                 <input
-                  {...register("lastName")}
-                  placeholder="Type in your last name"
-                />
-                <p>{errors.lastName?.message}</p>
-                <input
-                  {...register("adress")}
+                  {...register("address")}
                   placeholder="Type in your address"
                 />
                 <p>{errors.adress?.message}</p>
                 <input {...register("city")} placeholder="Type in your city" />
                 <p>{errors.city?.message}</p>
                 <input
-                  {...register("zipCode")}
+                  {...register("zipcode")}
                   placeholder="Type in your zip code"
                 />
                 <p>{errors.zipCode?.message}</p>

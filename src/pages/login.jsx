@@ -1,7 +1,7 @@
 // Imports
-import React from 'react';
-import { useContext } from 'react';
-import { useRouter } from 'next/router';
+import React from "react";
+import { useContext } from "react";
+import { useRouter } from "next/router";
 // import { useForm } from 'react-hook-form';
 // import { yupResolver } from '@hookform/resolvers/yup';
 // import * as yup from 'yup';
@@ -9,34 +9,24 @@ import { useRouter } from 'next/router';
 // import jwt_decode from 'jwt-decode';
 
 // context
-import { UserContext } from '../context/UserContext';
+import { UserContext } from "../context/UserContext";
 
 // components
-import { Seo } from '../components/seo/Seo';
-import { Wrapper } from '../components/layout/wrapper/Wrapper';
-import { UnAuthWrapper } from '../components/layout/wrapper/UnAuthWrapper';
+import { Seo } from "../components/seo/Seo";
+import { Wrapper } from "../components/layout/wrapper/Wrapper";
+import { UnAuthWrapper } from "../components/layout/wrapper/UnAuthWrapper";
 
 // helpers
-import { RoutingPath } from '../helpers/RoutingPath';
-import { getUser } from '../api/mockusers';
-import { setLocalStorage } from '../utils/localStorageHandler';
+import { RoutingPath } from "../helpers/RoutingPath";
 
 // styles
-import styles from '../styles/pages/Login.module.scss';
+import styles from "../styles/pages/Login.module.scss";
 
 export default function Login() {
   const router = useRouter();
   const { setUser } = useContext(UserContext);
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
-  // const login = (data) => {
-  //   return new Promise((res) => {
-  //     setUser(data);
-  //     window.localStorage.setItem('edice-user', JSON.stringify(data));
-  //     res();
-  //   });
-  // };
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
 
   // On submit
   const onFormSubmit = async (event) => {
@@ -48,10 +38,10 @@ export default function Login() {
     };
 
     // Logga in användaren i backenden
-    const response = await fetch('https://edice-back.herokuapp.com/login', {
-      method: 'POST',
+    const response = await fetch("https://edice-back.herokuapp.com/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     });
@@ -59,11 +49,8 @@ export default function Login() {
     const data = await response.json();
 
     if (response.status === 200) {
-      window.localStorage.setItem('edice-user', JSON.stringify(data));
+      window.localStorage.setItem("edice-user", JSON.stringify(data));
       setUser(data);
-      // login(data).then(() => {
-      //   router.push(RoutingPath.Account);
-      // });
 
       setTimeout(() => {
         router.push(RoutingPath.Account);
