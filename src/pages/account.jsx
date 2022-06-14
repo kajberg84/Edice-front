@@ -1,27 +1,28 @@
 // Imports
-import * as React from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useContext } from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import * as React from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 // Context
-import { UserContext } from "../context/UserContext";
+import { UserContext } from '../context/UserContext';
 
 // Components
-import { Hero } from "../components/general/hero/Hero";
-import { Seo } from "../components/seo/Seo";
-import { Wrapper } from "../components/layout/wrapper/Wrapper";
-import { AuthWrapper } from "../components/layout/wrapper/AuthWrapper";
-import { AccountModal } from "../components/general/accountmodal/AccountModal";
+import { Hero } from '../components/general/hero/Hero';
+import { Seo } from '../components/seo/Seo';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
+import { AuthWrapper } from '../components/layout/wrapper/AuthWrapper';
+import { AccountModal } from '../components/general/accountmodal/AccountModal';
+import { AccountOrders } from '../components/general/accountorders/AccountOrders';
 
 // Helpers
-import { RoutingPath } from "../helpers/RoutingPath";
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from "../styles/pages/Account.module.scss";
+import styles from '../styles/pages/Account.module.scss';
 
 const Account = () => {
   const { user } = useContext(UserContext);
@@ -55,9 +56,9 @@ const Account = () => {
     const response = await fetch(
       `https://edice-back.herokuapp.com/user/${userData.userId}`,
       {
-        method: "PUT",
+        method: 'PUT',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${user.access_token}`,
         },
         body: JSON.stringify(updatedUser),
@@ -70,17 +71,17 @@ const Account = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
     resolver: yupResolver(updateSchema),
   });
 
   // Delete account modal
   const lockScroll = React.useCallback(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   }, []);
 
   const unlockScroll = React.useCallback(() => {
-    document.body.style.overflow = "";
+    document.body.style.overflow = '';
   }, []);
 
   const openModal = () => {
@@ -134,7 +135,7 @@ const Account = () => {
               >
                 <label htmlFor="name"> Full name</label>
                 <input
-                  {...register("name")}
+                  {...register('name')}
                   autoComplete="cc-name"
                   type="text"
                   name="name"
@@ -144,7 +145,7 @@ const Account = () => {
                 <p>{errors.name?.message}</p>
                 <label htmlFor="address"> Address</label>
                 <input
-                  {...register("address")}
+                  {...register('address')}
                   autoComplete="street-address"
                   type="text"
                   name="address"
@@ -154,7 +155,7 @@ const Account = () => {
                 <p>{errors.address?.message}</p>
                 <label htmlFor="city"> City</label>
                 <input
-                  {...register("city")}
+                  {...register('city')}
                   autoComplete="city"
                   type="text"
                   name="city"
@@ -164,7 +165,7 @@ const Account = () => {
                 <p>{errors.city?.message}</p>
                 <label htmlFor="zipcode"> Zipcode</label>
                 <input
-                  {...register("zipCode")}
+                  {...register('zipCode')}
                   autoComplete="postal-code"
                   type="number"
                   name="zipcode"
@@ -175,7 +176,7 @@ const Account = () => {
 
                 <label htmlFor="phone">Phone</label>
                 <input
-                  {...register("phone")}
+                  {...register('phone')}
                   autoComplete="tel"
                   type="number"
                   name="phone"
@@ -185,7 +186,7 @@ const Account = () => {
                 <p>{errors.phone?.message}</p>
                 <label htmlFor="email">Email</label>
                 <input
-                  {...register("email")}
+                  {...register('email')}
                   autoComplete="email"
                   type="email"
                   name="email"
@@ -201,7 +202,7 @@ const Account = () => {
             </div>
             <div className={styles.account_wrapper}>
               <h2>Your orders</h2>
-              <p>List of orders here fetch from order endpoint</p>
+              <AccountOrders userData={user} />
             </div>
             <div className={styles.account_wrapper}>
               <h2>Delete account</h2>
