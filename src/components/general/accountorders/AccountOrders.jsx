@@ -20,7 +20,7 @@ export const AccountOrders = () => {
 
       try {
         const response = await fetch(
-          `http://localhost:5001/order/email/?email=${userEmail}`,
+          `https://edice-back.herokuapp.com/order/email/?email=${userEmail}`,
           {
             method: 'GET',
             headers: {
