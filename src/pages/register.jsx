@@ -67,6 +67,7 @@ export default function Register() {
 
     router.push(`/${RoutingPath.Login}`);
   };
+
   return (
     <>
       <Seo

@@ -26,7 +26,7 @@ const shippingSchema = yup
   .object({
     name: yup.string().required(),
     address: yup.string().required(),
-    zipCode: yup.string().required(),
+    zipcode: yup.string().required(),
     city: yup.string().required(),
     phone: yup.string().required(),
     email: yup.string().email().required(),
@@ -48,15 +48,6 @@ export default function Checkout() {
     multiply(product.price, product.quantity)
   );
 
-  // Submit order function
-  const onSubmit = (values) => {
-    // TODO Denna behöver refaktoriseras så att den följer next routern alternativt att ändra denna helt och inte jobba med url parametrar
-    router.push(RoutingPath.OrderConfirmation);
-    console.log(
-      "your order with details:" + JSON.stringify(values) + " is confirmed"
-    );
-  };
-
   const {
     register,
     handleSubmit,
@@ -66,7 +57,35 @@ export default function Checkout() {
     resolver: yupResolver(shippingSchema),
   });
 
+  // Submit order function
+  const onConfirmOrder = async (data) => {
+    const createdOrder = {
+      products: cart,
+      total: allPrices.reduce((total, price) => total + price),
+      name: data.name,
+      address: data.address,
+      city: data.city,
+      zipcode: data.zipcode,
+      phone: data.phone,
+      email: data.email,
+      status: "ordered",
+    };
+
+    console.log(createdOrder);
+
+    const response = await fetch("https://edice-back.herokuapp.com/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createdOrder),
+    });
+
+    router.push(RoutingPath.OrderConfirmation);
+  };
+
   const userData = user?.user;
+
   return (
     <>
       <Seo
@@ -99,14 +118,14 @@ export default function Checkout() {
                 <p className={styles.total}>
                   {allPrices.length > 0
                     ? allPrices.reduce((total, price) => total + price)
-                    : "0"}{" "}
+                    : "0"}
                   $
                 </p>
               </div>
             </div>
             <form
               className={styles.checkout_form}
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onConfirmOrder)}
             >
               {userData ? (
                 <h3>
@@ -118,12 +137,12 @@ export default function Checkout() {
 
               <label>Full Name</label>
               <input
-                {...register("lastName")}
+                {...register("name")}
                 autoComplete="cc-name"
                 placeholder="Full name..."
                 defaultValue={userData?.name}
               />
-              <p>{errors.lastName?.message}</p>
+              <p>{errors.name?.message}</p>
               <label>Adress</label>
               <input
                 {...register("address")}
@@ -134,12 +153,12 @@ export default function Checkout() {
               <p>{errors.address?.message}</p>
               <label>Zip Code</label>
               <input
-                {...register("zipCode")}
+                {...register("zipcode")}
                 autoComplete="postal-code"
                 placeholder="Zip code..."
                 defaultValue={userData?.zipcode}
               />
-              <p>{errors.zipCode?.message}</p>
+              <p>{errors.zipcode?.message}</p>
               <label>City</label>
               <input
                 {...register("city")}
