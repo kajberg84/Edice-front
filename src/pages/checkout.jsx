@@ -59,9 +59,14 @@ export default function Checkout() {
 
   // Submit order function
   const onConfirmOrder = async (data) => {
+    const totalPrice =
+      allPrices.length > 0
+        ? allPrices.reduce((total, price) => total + price)
+        : 0;
+
     const createdOrder = {
       products: cart,
-      total: allPrices.reduce((total, price) => total + price),
+      total: totalPrice,
       name: data.name,
       address: data.address,
       city: data.city,
@@ -80,6 +85,9 @@ export default function Checkout() {
       },
       body: JSON.stringify(createdOrder),
     });
+
+    const newOrder = await response.json();
+    console.log(newOrder._id);
 
     router.push(RoutingPath.OrderConfirmation);
   };
