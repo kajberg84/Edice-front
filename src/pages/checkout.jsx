@@ -1,25 +1,25 @@
 // imports
-import { useContext } from "react";
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import * as React from 'react';
+import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 // context
-import { UserContext } from "../context/UserContext";
-import { CartContext } from "../context/CartContext";
+import { UserContext } from '../context/UserContext';
+import { CartContext } from '../context/CartContext';
 
 // components
-import { Seo } from "../components/seo/Seo";
-import { Hero } from "../components/general/hero/Hero";
-import { ProductCardSmall } from "../components/general/productcardsmall/ProductCardSmall";
-import { Wrapper } from "../components/layout/wrapper/Wrapper";
+import { Seo } from '../components/seo/Seo';
+import { Hero } from '../components/general/hero/Hero';
+import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
 
 // helpers
-import { RoutingPath } from "../helpers/RoutingPath";
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from "../styles/pages/Checkout.module.scss";
+import styles from '../styles/pages/Checkout.module.scss';
 
 // Schema for formvalidating
 const shippingSchema = yup
@@ -34,8 +34,8 @@ const shippingSchema = yup
   .required();
 
 export default function Checkout() {
-  const { user } = useContext(UserContext);
-  const { cart } = useContext(CartContext);
+  const { user } = React.useContext(UserContext);
+  const { cart, setCart } = React.useContext(CartContext);
 
   const router = useRouter();
 
@@ -53,7 +53,7 @@ export default function Checkout() {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: "onBlur",
+    mode: 'onBlur',
     resolver: yupResolver(shippingSchema),
   });
 
@@ -73,22 +73,25 @@ export default function Checkout() {
       zipcode: data.zipcode,
       phone: data.phone,
       email: data.email,
-      status: "ordered",
+      status: 'ordered',
     };
 
-    console.log(createdOrder);
+    // console.log(createdOrder);
 
-    const response = await fetch("https://edice-back.herokuapp.com/order", {
-      method: "POST",
+    const response = await fetch('https://edice-back.herokuapp.com/order', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(createdOrder),
     });
 
     const newOrder = await response.json();
     console.log(newOrder._id);
+    // sätta order id i localstorage för att kunna hämta den senare
+    window.localStorage.setItem('orderId', newOrder._id);
 
+    setCart([]);
     router.push(RoutingPath.OrderConfirmation);
   };
 
@@ -126,7 +129,7 @@ export default function Checkout() {
                 <p className={styles.total}>
                   {allPrices.length > 0
                     ? allPrices.reduce((total, price) => total + price)
-                    : "0"}
+                    : '0'}
                   $
                 </p>
               </div>
@@ -145,7 +148,7 @@ export default function Checkout() {
 
               <label>Full Name</label>
               <input
-                {...register("name")}
+                {...register('name')}
                 autoComplete="cc-name"
                 placeholder="Full name..."
                 defaultValue={userData?.name}
@@ -153,7 +156,7 @@ export default function Checkout() {
               <p>{errors.name?.message}</p>
               <label>Adress</label>
               <input
-                {...register("address")}
+                {...register('address')}
                 autoComplete="street-address"
                 placeholder="Address..."
                 defaultValue={userData?.address}
@@ -161,7 +164,7 @@ export default function Checkout() {
               <p>{errors.address?.message}</p>
               <label>Zip Code</label>
               <input
-                {...register("zipcode")}
+                {...register('zipcode')}
                 autoComplete="postal-code"
                 placeholder="Zip code..."
                 defaultValue={userData?.zipcode}
@@ -169,7 +172,7 @@ export default function Checkout() {
               <p>{errors.zipcode?.message}</p>
               <label>City</label>
               <input
-                {...register("city")}
+                {...register('city')}
                 autoComplete="city"
                 placeholder="City..."
                 defaultValue={userData?.city}
@@ -177,7 +180,7 @@ export default function Checkout() {
               <p>{errors.city?.message}</p>
               <label>Phone</label>
               <input
-                {...register("phone")}
+                {...register('phone')}
                 autoComplete="tel"
                 placeholder="Phone number..."
                 defaultValue={userData?.phone}
@@ -185,7 +188,7 @@ export default function Checkout() {
               <p>{errors.phone?.message}</p>
               <label>E-mail</label>
               <input
-                {...register("email")}
+                {...register('email')}
                 autoComplete="email"
                 placeholder="E-mail..."
                 defaultValue={userData?.email}

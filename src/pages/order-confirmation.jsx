@@ -1,72 +1,61 @@
-// imports
-import { useContext, useState, useEffect } from "react";
+// ======== Saker som behöver fixas ========= //
+// Vid köp av flera av samma produkt så fungerar inte quantity, jag har gjort en simpel lösning där jag döljer quantity i på denna sidan. / Mattis
 
-// context
-import { CartContext } from "../context/CartContext";
+// imports
+import * as React from 'react';
 
 // components
-import { Hero } from "../components/general/hero/Hero";
-import { ProductCardSmall } from "../components/general/productcardsmall/ProductCardSmall";
-import { Seo } from "../components/seo/Seo";
-import { Wrapper } from "../components/layout/wrapper/Wrapper";
+import { Hero } from '../components/general/hero/Hero';
+import { ProductCardSmall } from '../components/general/productcardsmall/ProductCardSmall';
+import { Seo } from '../components/seo/Seo';
+import { Wrapper } from '../components/layout/wrapper/Wrapper';
 
 // helpers
-import { RoutingPath } from "../helpers/RoutingPath";
+import { RoutingPath } from '../helpers/RoutingPath';
 
 // styles
-import styles from "../styles/pages/OrderConfirmation.module.scss";
+import styles from '../styles/pages/OrderConfirmation.module.scss';
 
 const OrderConfirmation = () => {
-  const [order, setOrder] = useState([]);
-  const [productIds, setProductIds] = useState([]);
-  const [orderProducts, setOrderProducts] = useState([]);
-  const [urls, setUrls] = useState([]);
+  const [order, setOrder] = React.useState([]);
+  const [orderedProducts, setOrderedProducts] = React.useState([]);
+  const [urls, setUrls] = React.useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5001/order/62a873f0b6f70c47ae0ff431")
-      .then((res) => res.json())
-      .then((thisOrder) => setOrder(thisOrder));
+  // Fetcha ordern från databasen och lägger till i state.
+  React.useEffect(() => {
+    const orderId = window.localStorage.getItem('orderId');
+    const getOrderData = async () => {
+      const response = await fetch(
+        'https://edice-back.herokuapp.com/order/' + orderId
+      );
+      const data = await response.json();
+      setOrder(data);
+      console.log('Grund usefeect kördes');
+    };
+    getOrderData();
   }, []);
 
-  useEffect(() => {
-    setProductIds(order.products);
-    setUrls(
-      productIds?.map(
-        (productId) => `http://localhost:5001/product/${productId}`
-      )
+  // Fixa så att url för produkterna byggs upp.
+  React.useEffect(() => {
+    const productIdList = order.products?.map(
+      (productID) => `https://edice-back.herokuapp.com/product/${productID}`
     );
-  }, [order, productIds]);
-  //const products = order?.products;
-  const fetchAll = async (urls) => {
-    fetch(urls[0])
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    //const res = await Promise.all(urls?.map((u) => fetch(u)));
-    //const jsons = await Promise.all(res.map((r) => r.json()));
-    console.log(urls);
-  };
-  /* useEffect(() => {
-    if (urls) {
-      fetchAll(urls);
-    }
-  }, [urls]); */
+    setUrls(productIdList);
+  }, [order]);
 
-  /*  useEffect(() => {
-    const productDetails = productIds?.map((productId) =>
-      fetch(`http://localhost:5001/product/${productId}`).then((res) =>
-        res.json()
-      )
-    ); */
-  /*  setTimeout(() => {
-      Promise.all(productDetails).then((data) => {
-        setOrderProducts(data);
-      });
-    }, [300]); */
-
-  /*    console.log(productDetails);
-  }, [productIds]); */
-
-  console.log(order);
+  // Fetcha in alla beställda produkter genom en loop.
+  React.useEffect(() => {
+    const getProducts = async () => {
+      const productList = [];
+      for (let i = 0; i < urls?.length; i++) {
+        const response = await fetch(urls[i]);
+        const data = await response.json();
+        productList.push(data);
+      }
+      setOrderedProducts(productList);
+    };
+    getProducts();
+  }, [urls]);
 
   return (
     <>
@@ -77,7 +66,7 @@ const OrderConfirmation = () => {
         pageUrl={RoutingPath.home}
       />
       <div className={styles.order_confirmation_container}>
-        <Hero title={"Order confirmation"} />
+        <Hero title={'Order confirmation'} />
         <Wrapper>
           <div className={styles.order_confirmation_wrapper}>
             <h2>Thank you for the order</h2>
@@ -87,6 +76,15 @@ const OrderConfirmation = () => {
               <h4 className={styles.order_confirmation_heading4}>
                 Products ordered:
               </h4>
+              {orderedProducts?.map((product) => (
+                <>
+                  <ProductCardSmall
+                    title={product.title}
+                    price={product.price}
+                    description={product.description}
+                  />
+                </>
+              ))}
             </div>
             <div className={styles.total_wrapper}>
               <p className={styles.total}> Total: </p>
